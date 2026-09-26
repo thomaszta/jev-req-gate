@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>jev-req-gate · Playground</title>
+<title>jev-req-gate · 在线试玩（免 key）</title>
 <style>
   :root{--bg:#0f1117;--card:#171a23;--card2:#1d2130;--line:#2a2f42;--fg:#e6e9f2;--dim:#8b93a8;
         --green:#3fb950;--yellow:#d29922;--red:#f85149;--blue:#4493f8;}
@@ -58,30 +58,28 @@
 <body>
 <div class="wrap">
   <header>
-    <div class="badge">jev-req-gate · open-source playground · no API key needed</div>
-    <h1>Quality <span class="gate">gate</span> for AI-generated requirements</h1>
+    <div class="badge">jev-req-gate · 开源在线试玩 · 无需 API key</div>
+    <h1>AI 生成需求的<span class="gate">质量门禁</span></h1>
     <div class="sub">
-      Jev (TypeSafe System One) judges each requirement across
-      <span class="pill dl">5 MECE faces</span><span class="pill mk">22 atomic questions</span> — then routes to
-      <b style="color:var(--green)">PASS</b> / <b style="color:var(--yellow)">REVIEW</b> / <b style="color:var(--red)">BLOCK</b>.
-      Pick a scenario to see the calibrated routing logic in action.
+      Jev（TypeSafe System One）从
+      <span class="pill dl">MECE 5 面</span><span class="pill mk">22 个原子问题</span>判断每条需求，路由到
+      <b style="color:var(--green)">放行</b> / <b style="color:var(--yellow)">转人工</b> / <b style="color:var(--red)">打回</b>。
+      点选左侧场景，直观看到校准后的路由逻辑如何工作。
     </div>
   </header>
 
   <div class="layout">
-    <!-- left: scenarios -->
     <div class="panel">
-      <h2>Scenario</h2>
+      <h2>示例场景</h2>
       <div id="scenes"></div>
-      <div class="note">This playground runs the <b>same decide() routing and calibrated thresholds</b> as the
-        real tool, with pre-baked answers — no API call. For live Jev output run
-        <code>jev-req-gate --file examples/document_demo.json --project-context "..."</code>.</div>
+      <div class="note">本页运行与真实工具<b>相同的 decide() 路由逻辑和校准阈值</b>，判定结果预置、不调 API。
+        要跑真实 Jev 输出，用
+        <code>jev-req-gate --file examples/document_demo.json --project-context "..."</code>。</div>
     </div>
 
-    <!-- right: signals -->
     <div>
       <div class="panel" style="margin-bottom:16px">
-        <h2>22 atomic signals (Jev answers)</h2>
+        <h2>22 个原子信号（Jev 的回答）</h2>
         <div id="faces"></div>
       </div>
       <div class="verd">
@@ -97,7 +95,23 @@
 </div>
 
 <script>
-// 5 faces, key order mirrors src/jev_req_gate/profiles.py
+const SIGNAL_ZH = {
+  self_contained:"自足性（不依赖文档外知识）", correct:"正确性", feasible:"可行性",
+  necessary:"必要性", contradicts_siblings:"与其它条目矛盾", implementation_free:"混入实现方案",
+  terminology_defined:"术语已定义", acceptance_quantifiable:"验收可量化",
+  clarity:"表述清晰", readability:"可读性", atomicity:"原子性", completeness:"完整性",
+  consistent_internal:"内部一致", non_redundant:"不冗余", dependencies_declared:"依赖已声明",
+  conforms_template:"符合模板", traceable:"可追溯", fidelity:"忠实于来源",
+  missing_info:"缺失信息", req_type:"需求类型", priority:"优先级", risk:"风险",
+  "quality avg":"质量均分", "dimensions uncertain":"个维度不确定", "confidence":"置信度",
+  "risk = high":"风险为高", "low, check":"偏低，需检查", "human review":"→ 转人工复核"
+};
+const FACE_ZH = {
+  Expression:["表述","怎么写的"], Content:["内容","写了什么"],
+  Reality:["现实","是否成立"], Relation:["关系","与其它条目比"],
+  Governance:["治理","是否符合规则"]
+};
+
 const FACES = [
   ["Expression", "how it's worded",
    [["clarity","score"],["readability","score"],["atomicity","score"]]],
@@ -116,7 +130,6 @@ const T = {block_noul_pos:.3, block_noul_neg:.7, review_score:2.2, block_score:1
            review_pos_weak:.5, review_neg_hi:.5, mid_low:.25, mid_high:.75, low_conf:.6};
 const BLOCK_POS = ["self_contained","correct","feasible","necessary"];
 
-// ---- scenarios: {name, desc, color, answers} ----
 function S(scoreVals, noulPos, noulNeg, choice, confOverrides){
   const a={}; CORE.forEach(k=>a[k]={score:scoreVals[k], confidence:(confOverrides&&confOverrides[k])||.8});
   Object.entries(noulPos).forEach(([k,v])=>a[k]={noul:v});
@@ -125,14 +138,14 @@ function S(scoreVals, noulPos, noulNeg, choice, confOverrides){
   return a;
 }
 const scenarios = [
-  {id:"s1", cls:"s1", name:"Sound requirement", color:"#3fb950", meta:"payment-gateway settlement — should pass",
+  {id:"s1", cls:"s1", name:"健全需求", color:"#3fb950", meta:"支付网关结算失败自动重试——应放行",
    answers:S({clarity:2.0,readability:2.4,atomicity:2.6,completeness:2.4},
              {self_contained:.62,terminology_defined:.55,acceptance_quantifiable:.68,
               correct:.78,feasible:.81,necessary:.85,traceable:.74,fidelity:.8,
               consistent_internal:.86,non_redundant:.82,dependencies_declared:.66,conforms_template:.7},
              {implementation_free:.3,contradicts_siblings:.08},
              {missing_info:["none",.8],req_type:["feature",.85],priority:["should",.8],risk:["low",.82]})},
-  {id:"s2", cls:"s2", name:"Ambiguous", color:"#d29922", meta:"vague wording, low confidence — review",
+  {id:"s2", cls:"s2", name:"表述含糊", color:"#d29922", meta:"措辞空泛、置信度低——转人工复核",
    answers:S({clarity:3.5,readability:2.6,atomicity:3.2,completeness:2.9},
              {self_contained:.55,terminology_defined:.6,acceptance_quantifiable:.58,
               correct:.66,feasible:.7,necessary:.72,traceable:.64,fidelity:.66,
@@ -140,14 +153,14 @@ const scenarios = [
              {implementation_free:.34,contradicts_siblings:.12},
              {missing_info:["boundary",.7],req_type:["feature",.7],priority:["could",.7],risk:["mid",.68]},
              {clarity:.62})},
-  {id:"s3", cls:"s3", name:"Infeasible", color:"#f85149", meta:"pull full data in <50ms — infeasible",
+  {id:"s3", cls:"s3", name:"不可行", color:"#f85149", meta:"每次刷新实时拉取全量数据且 <50ms——不可行",
    answers:S({clarity:4.0,readability:3.6,atomicity:3.8,completeness:3.4},
              {self_contained:.38,terminology_defined:.7,acceptance_quantifiable:.3,
               correct:.2,feasible:.06,necessary:.2,traceable:.6,fidelity:.55,
               consistent_internal:.82,non_redundant:.78,dependencies_declared:.5,conforms_template:.68},
              {implementation_free:.6,contradicts_siblings:.15},
              {missing_info:["dependency",.72],req_type:["nfr",.8],priority:["must",.8],risk:["high",.85]})},
-  {id:"s4", cls:"s4", name:"Contradictory", color:"#f85149", meta:"blocks deleting a referenced product — contradicts next item",
+  {id:"s4", cls:"s4", name:"前后矛盾", color:"#f85149", meta:"阻止删除被引用商品——与下一条互相矛盾",
    answers:S({clarity:3.6,readability:3.4,atomicity:3.5,completeness:3.2},
              {self_contained:.66,terminology_defined:.7,acceptance_quantifiable:.72,
               correct:.4,feasible:.6,necessary:.62,traceable:.68,fidelity:.7,
@@ -156,19 +169,14 @@ const scenarios = [
              {missing_info:["none",.7],req_type:["feature",.8],priority:["should",.75],risk:["high",.8]})},
 ];
 
-// ---- decide() re-implementation, identical to core.py ----
 function decide(a){
   const reasons=[];
   const qs=CORE.map(k=>a[k].score).filter(x=>x!=null);
   const avg=qs.length?qs.reduce((s,v)=>s+v,0)/qs.length:null;
-  // RED
-  for(const [k,neg] of [[null,null]]){
-    BLOCK_POS.forEach(k=>{ if(a[k]&&a[k].noul!=null && a[k].noul<T.block_noul_pos) reasons.push(`${k}=${a[k].noul.toFixed(2)} < ${T.block_noul_pos}`); });
-    [["implementation_free",true],["contradicts_siblings",true]].forEach(([k])=>{ if(a[k]&&a[k].noul!=null&&a[k].noul>T.block_noul_neg) reasons.push(`${k}=${a[k].noul.toFixed(2)} > ${T.block_noul_neg}`); });
-  }
+  BLOCK_POS.forEach(k=>{ if(a[k]&&a[k].noul!=null && a[k].noul<T.block_noul_pos) reasons.push(`${k}=${a[k].noul.toFixed(2)} < ${T.block_noul_pos}`); });
+  [["implementation_free",true],["contradicts_siblings",true]].forEach(([k])=>{ if(a[k]&&a[k].noul!=null&&a[k].noul>T.block_noul_neg) reasons.push(`${k}=${a[k].noul.toFixed(2)} > ${T.block_noul_neg}`); });
   if(avg!=null && avg<T.block_score) reasons.push(`quality avg ${avg.toFixed(2)} < ${T.block_score}`);
   if(reasons.length) return {v:"red",r:reasons,avg};
-  // YELLOW
   if(avg!=null && avg<T.review_score) reasons.push(`quality avg ${avg.toFixed(2)} < ${T.review_score}`);
   if(a.risk&&a.risk.choice==="high") reasons.push("risk = high, review");
   let mid=0;
@@ -184,10 +192,17 @@ function decide(a){
   return {v:"green",r:[],avg};
 }
 
-// ---- render ----
-let cur=null;
+function zhReason(t){
+  let s=t;
+  const m=s.match(/^([a-z_ ]+?)(=|\s)/);
+  if(m){ const key=m[1].trim(); s=s.replace(key, SIGNAL_ZH[key]||key); }
+  s=s.replace(/confidence=/g,"置信度=").replace(/low, check/g,"偏低，需检查")
+      .replace(/→ human review/g,"→ 转人工复核").replace(/quality avg/g,"质量均分")
+      .replace(/dimensions uncertain/g,"个维度不确定").replace(/risk = high/g,"风险为高");
+  return s;
+}
+
 function render(idx){
-  cur=idx;
   document.querySelectorAll(".scene").forEach((el,i)=>el.classList.toggle("on",i===idx));
   const s=scenarios[idx], a=s.answers;
   const d=decide(a);
@@ -195,8 +210,9 @@ function render(idx){
   const hit=new Set();
   d.r.forEach(r=>hit.add(r.split("=")[0]));
   FACES.forEach(([name,tag,keys])=>{
+    const zh=FACE_ZH[name]||[name,tag];
     const f=document.createElement("div"); f.className="face";
-    f.innerHTML=`<div class="faceh"><b>${name}</b><span class="fc">${tag}</span></div>`;
+    f.innerHTML=`<div class="faceh"><b>${zh[0]}</b><span class="fc">${zh[1]}</span></div>`;
     const rows=document.createElement("div"); rows.className="rows";
     keys.forEach(([k,ty])=>{
       const an=a[k]; if(!an)return;
@@ -210,15 +226,16 @@ function render(idx){
     });
     f.appendChild(rows); faces.appendChild(f);
   });
-  const V={red:"BLOCK",yellow:"REVIEW",green:"PASS"};
-  document.getElementById("verdict").textContent=V[d.v];
-  document.getElementById("verdict").className="big "+V[d.v];
+  const V={red:["打回","BLOCK"],yellow:["转人工","REVIEW"],green:["放行","PASS"]};
+  document.getElementById("verdict").textContent=V[d.v][0]+"  "+V[d.v][1];
+  document.getElementById("verdict").className="big "+V[d.v][1];
   document.getElementById("meta").textContent=s.meta;
+  const riskZh={low:"低",mid:"中",high:"高"};
   document.getElementById("summary").innerHTML=
-    `quality avg <b>${d.avg!=null?d.avg.toFixed(2):"—"}</b> · risk <b>${a.risk? a.risk.choice:""}</b>`;
+    `质量均分 <b>${d.avg!=null?d.avg.toFixed(2):"—"}</b> · 风险 <b>${a.risk? riskZh[a.risk.choice]||a.risk.choice:""}</b>`;
   const rEl=document.getElementById("reasons"); rEl.innerHTML="";
-  if(d.r.length===0){ rEl.innerHTML=`<div class="r" style="color:#3fb950">No block/review triggers — key signals healthy.</div>`; }
-  else d.r.forEach(x=>{ const el=document.createElement("div"); el.className="r"; el.textContent="• "+x; rEl.appendChild(el); });
+  if(d.r.length===0){ rEl.innerHTML=`<div class="r" style="color:#3fb950">无打回/复核触发——关键信号健康，放行。</div>`; }
+  else d.r.forEach(x=>{ const el=document.createElement("div"); el.className="r"; el.innerHTML="• "+zhReason(x); rEl.appendChild(el); });
 }
 const sc=document.getElementById("scenes");
 scenarios.forEach((s,i)=>{
