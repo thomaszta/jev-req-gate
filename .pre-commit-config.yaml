@@ -1,0 +1,17 @@
+# Example pre-commit configuration that runs the jev-req-gate hook locally.
+# Copy the hook id into your own repo's .pre-commit-config.yaml:
+#   - repo: https://github.com/<you>/jev-req-gate
+#     rev: v0.1.0        # pin a release
+#     hooks:
+#       - id: jev-req-gate
+#
+# Or, to run from the source tree without publishing:
+repos:
+  - repo: local
+    hooks:
+      - id: jev-req-gate
+        name: jev-req-gate (local)
+        entry: python hooks/jev_req_gate_hook.py
+        language: system
+        types: [text]
+        files: '(requirements.*\.(json|csv|txt)$)|\.req.*$'

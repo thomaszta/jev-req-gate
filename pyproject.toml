@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jev-req-gate"
+version = "0.6.2"
+description = "用 Jev (TypeSafe System One) 给 LLM 生成的需求做质量门禁：MECE 5 面 × 22 个原子问题，按阈值路由放行/转人工/打回"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["requirements-engineering", "quality-gate", "jev", "typesafe", "system-one", "llm"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = ["typesafe-sdk>=0.7"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+jev-req-gate = "jev_req_gate.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

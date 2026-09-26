@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "description": "需求质量门禁对比测试集。expected: pass=应放行进入开发，block=应打回。坏需求按方法论 MECE 5 面 × 22 原子问题组织，每条标注 facet(判断面)/signal(对应信号)/defect(缺陷类别)。标签由需求评审者人工标注。",
+    "context": "电商库存管理平台：技术栈 Python/PostgreSQL，含商品/订单/库存三域；库存扣减需考虑订单引用约束与并发，结算依赖内部支付网关；对账与迁移遵循平台既有规范。"
+  },
+  "requirements": [
+    {"id": "r01", "expected": "pass",
+     "text": "当用户尝试删除一个已被其他订单引用的商品时，系统应阻止删除，并返回引用该商品的订单数量，用于向用户说明原因。",
+     "note": "表述清晰、现实层健全（正确/可行/必要）、验收可量化（返回订单数）"},
+
+    {"id": "r02", "expected": "pass",
+     "text": "系统应调用内部支付网关完成结算；网关单点超时应自动重试最多3次，并记录每次重试日志。",
+     "note": "边界明确（重试次数）、验收可测（重试日志）"},
+
+    {"id": "r03", "expected": "pass",
+     "text": "库存不足时，系统应阻止下单并返回当前可选库存数量；库存扣减与订单创建需在同一事务内完成，避免超卖。",
+     "note": "目标一致、可行、含异常处理（防超卖）"},
+
+    {"id": "r04", "expected": "pass",
+     "text": "支付成功后应异步通知订单中心更新订单状态，重试策略采用指数退避，最大重试5次，并保证通知至少送达一次。",
+     "note": "可量化（退避/次数/至少一次）、依赖显式化"},
+
+    {"id": "r05", "expected": "pass",
+     "text": "库存同步的外部接口超时阈值应可配置，默认5秒，允许运维通过配置中心调整。",
+     "note": "可量化（默认5秒）、含边界与可配置项"},
+
+    {"id": "r06", "expected": "block", "facet": "表述层", "signal": "clarity",
+     "defect": "含混 / 不可测",
+     "text": "尽快修复订单金额不准的问题，响应要快一些。"},
+
+    {"id": "r07", "expected": "block", "facet": "表述层", "signal": "atomicity",
+     "defect": "混杂多条需求（一条塞五件事）",
+     "text": "系统需支持用户登录、订单支付、导出报表、发送站内通知、展示促销活动。"},
+
+    {"id": "r08", "expected": "block", "facet": "内容层", "signal": "self_contained",
+     "defect": "不自足：依赖文档外的隐形知识/假设",
+     "text": "对账差异按既定结算惯例处理，沿用老系统的处理方式。"},
+
+    {"id": "r09", "expected": "block", "facet": "内容层", "signal": "implementation_free",
+     "defect": "把实现方案/技术栈当需求",
+     "text": "系统应使用 Redis 缓存商品数据，并用 Kafka 做订单消息削峰。"},
+
+    {"id": "r10", "expected": "block", "facet": "内容层", "signal": "missing_info",
+     "defect": "缺关键信息（前置条件/边界/验收判据）",
+     "text": "支持跨境订单。"},
+
+    {"id": "r11", "expected": "block", "facet": "现实层", "signal": "fidelity",
+     "defect": "意图失真：AI 扩写发散 / 把通用知识当真，不属于本项目目标",
+     "text": "为提升用户粘性，应在首页加入 gamification 徽章与连续签到奖励体系。"},
+
+    {"id": "r12", "expected": "block", "facet": "现实层", "signal": "feasible",
+     "defect": "不可行",
+     "text": "系统在用户每次刷新页面时，实时从第三方征信服务拉取全量数据，且任何网络波动下响应都不能超过50毫秒。"},
+
+    {"id": "r13", "expected": "block", "facet": "现实层", "signal": "necessary",
+     "defect": "不必要 / 装饰性冗余",
+     "text": "商品详情页应用 AI 生成五彩斑斓的动态背景，以提升页面氛围。"},
+
+    {"id": "r14", "expected": "block", "facet": "关系层", "signal": "contradicts_siblings",
+     "defect": "与本文档其他条目矛盾（与 r01 冲突）",
+     "text": "允许管理员强制删除任何已被订单引用的商品，且无需二次确认。"},
+
+    {"id": "r15", "expected": "block", "facet": "关系层", "signal": "non_redundant",
+     "defect": "与已有需求重复（与 r01 重复）",
+     "text": "商品被订单引用时应禁止删除。"},
+
+    {"id": "r16", "expected": "block", "facet": "治理层", "signal": "conforms_template",
+     "defect": "模板不合规：单句、缺验收标准与前置条件",
+     "text": "实现库存扣减功能。"},
+
+    {"id": "r17", "expected": "block", "facet": "现实层", "signal": "correct",
+     "defect": "危险操作 / 违背安全与正确性",
+     "text": "旧系统迁移时应将老用户的所有历史密码明文导出，以便一键导入新系统。"}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "block_score": 1.0,
+  "review_score": 2.4,
+  "block_noul_neg": 0.6,
+  "block_noul_pos": 0.4,
+  "block_pos_keys": ["self_contained", "correct", "feasible", "necessary"],
+  "block_neg_keys": ["contradicts_siblings", "implementation_free"],
+  "review_pos_weak": 0.5,
+  "review_neg_hi": 0.45,
+  "noul_mid_low": 0.25,
+  "noul_mid_high": 0.75,
+  "low_confidence": 0.6
+}

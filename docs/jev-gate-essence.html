@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jev 需求质量门禁：判断逻辑与工作过程</title>
+</head>
+<body>
+<div style="max-width:1020px;margin:0 auto;padding:28px 20px 40px;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:#1c2b3a;background:#f7f9fb;line-height:1.55;">
+<style>
+  .card{background:#fff;border:1px solid #e3e9f0;border-radius:12px;padding:18px 20px;margin:14px 0;}
+  .sec-title{font-size:19px;font-weight:700;color:#16324f;margin:26px 0 6px;}
+  .sec-sub{font-size:13px;color:#5b6b7c;margin:0 0 10px;}
+  .pill{display:inline-block;font-size:12px;padding:2px 9px;border-radius:10px;margin-right:6px;}
+  .pill.red{background:#fdecea;color:#c0392b;}
+  .pill.yellow{background:#fdf3e0;color:#b7791f;}
+  .pill.green{background:#e8f5ec;color:#2e7d32;}
+  .pill.blue{background:#e8f1f8;color:#2c6e91;}
+  .pill.gray{background:#eef1f5;color:#5b6b7c;}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14px;}
+  table.cmp th,table.cmp td{border:1px solid #e3e9f0;padding:8px 10px;text-align:left;}
+  table.cmp th{background:#16324f;color:#fff;font-weight:600;}
+  table.cmp td.hl{font-weight:700;color:#c0392b;}
+  table.cmp td.hl2{font-weight:700;color:#2e7d32;}
+  .note{font-size:12px;color:#7a8a9b;margin-top:6px;}
+  .principle{display:flex;gap:12px;margin:10px 0;}
+  .principle .no{flex:0 0 34px;height:34px;border-radius:17px;background:#16324f;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;}
+  .principle .bd{flex:1;}
+  .principle .bd b{color:#16324f;}
+  .principle .bd p{margin:2px 0 0;font-size:13px;color:#42536a;}
+  .hero{background:linear-gradient(135deg,#16324f 0%,#2c6e91 100%);border-radius:14px;color:#fff;padding:24px 26px;}
+  .hero h1{margin:0 0 6px;font-size:24px;}
+  .hero .sub{font-size:14px;opacity:.92;}
+  .hero .meta{margin-top:12px;font-size:12px;opacity:.85;}
+  .pain{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;}
+  .pain .it{background:#fff;border:1px solid #e3e9f0;border-left:4px solid #e8862e;border-radius:8px;padding:10px 12px;font-size:13px;}
+  .pain .it b{display:block;color:#16324f;margin-bottom:2px;}
+  .flow{width:100%;height:auto;}
+  .flow text{font-family:inherit;}
+  .cmp-note{font-size:12px;color:#7a8a9b;margin-top:4px;}
+  footer{font-size:12px;color:#7a8a9b;margin-top:22px;text-align:center;}
+</style>
+
+<div class="hero">
+  <h1>Jev 需求质量门禁：判断逻辑与工作过程</h1>
+  <div class="sub">AI 时代需求像真的、又多又全，人工评审抓不到重点。核心设计：<b>判断是主业，生成是副业</b> —— 用 System One 模型把质量判断变成可编程、带置信度、可批量、可复现的分拣信号。</div>
+  <div class="meta">TypeSafe System One「Jev」· 不生成文本，只返回带校准概率的结构化判断（Choice / Score / Noul）· 开源实现 jev-req-gate</div>
+</div>
+
+<div class="sec-title">① 它解决什么：四个真实痛点</div>
+<div class="sec-sub">AI 扩写的需求不是"写得差"，而是"看起来全面、其实不可信"——工具定位是分拣，不是重写。</div>
+<div class="pain">
+  <div class="it"><b>像真的，抓不到重点</b>AI 按通用知识扩写，人工评审每条都像对的，却难判断是否契合当前项目上下文</div>
+  <div class="it"><b>冗余堆砌</b>内容看起来全面、细致，实则不少条目"并不需要"，评审被淹没</div>
+  <div class="it"><b>前后矛盾</b>一篇文档内互相冲突（删除被引用商品：阻止 vs 强制删除），靠人通读才发现</div>
+  <div class="it"><b>隐形知识</b>根因：文档自足性——大量术语、假设、依赖在文档之外，读的人以为懂了</div>
+</div>
+
+<div class="sec-title">② 工作过程：从文档到三堆（一次调用，全自动）</div>
+<div class="sec-sub">输入是手头就有的需求文档，输出是可直接行动的 放行 / 转人工 / 打回。</div>
+<div class="card">
+<svg class="flow" viewBox="0 0 960 168" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="工作过程五步流水线">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2c6e91"/>
+    </marker>
+  </defs>
+  <g font-size="13">
+    <!-- node 1 -->
+    <rect x="10" y="18" width="150" height="62" rx="10" fill="#e8f1f8" stroke="#2c6e91" stroke-width="1.5"/>
+    <text x="85" y="42" text-anchor="middle" font-weight="700" fill="#16324f">需求文档</text>
+    <text x="85" y="62" text-anchor="middle" fill="#42536a">.md / .json / 文本</text>
+    <text x="85" y="103" text-anchor="middle" font-size="12" fill="#5b6b7c">任意结构，含编号 / 表格 / 用户故事</text>
+    <!-- arrow -->
+    <line x1="162" y1="49" x2="206" y2="49" stroke="#2c6e91" stroke-width="2" marker-end="url(#arr)"/>
+    <!-- node 2 -->
+    <rect x="210" y="18" width="160" height="62" rx="10" fill="#e8f1f8" stroke="#2c6e91" stroke-width="1.5"/>
+    <text x="290" y="42" text-anchor="middle" font-weight="700" fill="#16324f">拆解 + 编号</text>
+    <text x="290" y="62" text-anchor="middle" fill="#42536a">R01…Rnn，source_ref 溯源</text>
+    <text x="290" y="103" text-anchor="middle" font-size="12" fill="#5b6b7c">prepared.json 人工确认（HITL 兜底）</text>
+    <!-- arrow -->
+    <line x1="372" y1="49" x2="416" y2="49" stroke="#2c6e91" stroke-width="2" marker-end="url(#arr)"/>
+    <!-- node 3 -->
+    <rect x="420" y="18" width="170" height="62" rx="10" fill="#e8f1f8" stroke="#2c6e91" stroke-width="1.5"/>
+    <text x="505" y="42" text-anchor="middle" font-weight="700" fill="#16324f">打包 state</text>
+    <text x="505" y="62" text-anchor="middle" fill="#42536a">条目 + 项目上下文 + 全文</text>
+    <text x="505" y="103" text-anchor="middle" font-size="12" fill="#5b6b7c">含术语表 / 假设 / 既有需求集</text>
+    <!-- arrow -->
+    <line x1="592" y1="49" x2="636" y2="49" stroke="#2c6e91" stroke-width="2" marker-end="url(#arr)"/>
+    <!-- node 4 -->
+    <rect x="640" y="18" width="150" height="62" rx="10" fill="#fdf3e0" stroke="#d97706" stroke-width="1.5"/>
+    <text x="715" y="42" text-anchor="middle" font-weight="700" fill="#8a5a0b">Jev 一次调用</text>
+    <text x="715" y="62" text-anchor="middle" fill="#6b4d12">22 原子问题并行</text>
+    <text x="715" y="103" text-anchor="middle" font-size="12" fill="#5b6b7c">返回校准概率，不生成文本</text>
+    <!-- arrow -->
+    <line x1="792" y1="49" x2="836" y2="49" stroke="#2c6e91" stroke-width="2" marker-end="url(#arr)"/>
+    <!-- node 5 -->
+    <rect x="840" y="18" width="110" height="62" rx="10" fill="#fff" stroke="#16324f" stroke-width="1.5"/>
+    <text x="895" y="40" text-anchor="middle" font-weight="700" fill="#16324f">阈值路由</text>
+    <text x="895" y="58" text-anchor="middle" font-size="12" fill="#2e7d32">放行</text>
+    <text x="895" y="72" text-anchor="middle" font-size="12" fill="#b7791f">转人工</text>
+    <text x="895" y="86" text-anchor="middle" font-size="12" fill="#c0392b">打回</text>
+  </g>
+</svg>
+<div class="note">关键设计：跨条矛盾、上下文契合、隐性依赖都依赖比较——所以 state 打包"条目 + 全文 + 既有需求集"，一次调用同时判 22 维，不是逐条孤立判断。</div>
+</div>
+
+<div class="sec-title">③ 判断逻辑精华：全量判断，但打回只看可靠信号</div>
+<div class="sec-sub">这是整套设计最值得借鉴的一点——不是"22 个维度都当硬规则"，而是校准后分层使用。</div>
+<div class="card">
+  <div style="font-weight:700;color:#16324f;margin-bottom:8px;">MECE 5 面 × 22 个原子问题（每个问题只问一件事，复杂判断在代码里组合）</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;font-size:13px;">
+    <div style="background:#e8f1f8;border-radius:8px;padding:8px 10px;"><b style="color:#2c6e91;">表述</b><br>无歧义 / 原子性 / 可理解 / 术语已定义</div>
+    <div style="background:#e8f1f8;border-radius:8px;padding:8px 10px;"><b style="color:#2c6e91;">内容</b><br>完整 / 可验证 / 自足 / 不夹带实现方案</div>
+    <div style="background:#e8f1f8;border-radius:8px;padding:8px 10px;"><b style="color:#2c6e91;">现实</b><br>正确 / 可行 / 必要 / 不冗余 / 符合上下文</div>
+    <div style="background:#e8f1f8;border-radius:8px;padding:8px 10px;"><b style="color:#2c6e91;">关系</b><br>与既有需求不矛盾 / 依赖声明 / 一致</div>
+    <div style="background:#e8f1f8;border-radius:8px;padding:8px 10px;"><b style="color:#2c6e91;">治理</b><br>可追溯 / 风险 / 优先级 / 验收可量化</div>
+  </div>
+  <div style="margin-top:14px;display:grid;grid-template-columns:1.2fr 1fr;gap:12px;font-size:13px;">
+    <div style="border:1px solid #c0392b;border-radius:8px;padding:10px 12px;">
+      <b style="color:#c0392b;">打回（red）—— 只认 6 个最可靠信号</b>
+      <p style="margin:6px 0 0;color:#42536a;">正向白名单：<code>self_contained / correct / feasible / necessary</code> &lt; 0.3 任一破线，或负向 <code>contradicts_siblings</code> &gt; 0.7，或质量均分 &lt; 1.0 → 直接打回。宁可少杀，不可错杀。</p>
+    </div>
+    <div style="border:1px solid #b7791f;border-radius:8px;padding:10px 12px;">
+      <b style="color:#b7791f;">提示（yellow）—— 其余全部降权</b>
+      <p style="margin:6px 0 0;color:#42536a;">质量分 / <code>terminology_defined</code> / <code>risk</code> / <code>implementation_free</code> 只作提示，不参与打回——实测它们对"指标、约束、兼容性"等好需求系统性误伤。</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec-title">④ 路由带：概率不是二分类，中间带交给人工</div>
+<div class="sec-sub">Jev 输出 0–1 概率，路由用阈值分层——不确定的绝不硬消，这是门禁可信度的来源。</div>
+<div class="card">
+<svg width="100%" viewBox="0 0 960 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="概率路由带">
+  <text x="0" y="22" font-size="13" fill="#5b6b7c">概率/信号值 0 → 1</text>
+  <rect x="0" y="34" width="1000" height="30" rx="6" fill="#eef1f5"/>
+  <rect x="0" y="34" width="288" height="30" rx="6" fill="#fdecea" stroke="#c0392b"/>
+  <rect x="240" y="34" width="480" height="30" fill="#fdf3e0"/>
+  <rect x="720" y="34" width="280" height="30" rx="6" fill="#e8f5ec" stroke="#2e7d32"/>
+  <text x="20" y="54" font-size="13" font-weight="700" fill="#c0392b">红 · 打回</text>
+  <text x="330" y="54" font-size="13" font-weight="700" fill="#b7791f">黄 · 转人工</text>
+  <text x="800" y="54" font-size="13" font-weight="700" fill="#2e7d32">绿 · 放行</text>
+  <line x1="288" y1="64" x2="288" y2="74" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="288" y="88" text-anchor="middle" font-size="11" fill="#7a8a9b">&lt; 0.3 正向破线</text>
+  <line x1="720" y1="64" x2="720" y2="74" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="720" y="88" text-anchor="middle" font-size="11" fill="#7a8a9b">关键信号 ≥ 0.5~0.6 且全健康</text>
+  <text x="480" y="88" text-anchor="middle" font-size="11" fill="#7a8a9b">0.25–0.75 不确定带 → 人工裁决，不硬消</text>
+</svg>
+<div class="note">实测行为：正常文档"无致命硬伤但处处需确认"时全黄——这是保守门禁该有的样子，不是故障。想更激进可用收紧阈值模板。</div>
+</div>
+
+<div class="sec-title">⑤ 为什么要 Jev 而不是 LLM：同一测试集、同一判定协议的真实对比</div>
+<div class="sec-sub">17 条 × 2 轮，Jev vs DeepSeek V4 Flash，本仓库实测（benchmarks/ 可复现）。</div>
+<div class="card">
+<table class="cmp">
+  <tr><th style="width:34%;">指标</th><th>Jev（System One）</th><th>DeepSeek V4 Flash（LLM）</th></tr>
+  <tr><td>误打回（错杀好需求）</td><td class="hl2">0.0</td><td class="hl">0.6 —— 门禁被错杀，团队就会绕过门禁</td></tr>
+  <tr><td>判定一致性（同条两次同结果）</td><td class="hl2">1.0</td><td class="hl">0.9412 —— 不可复现、不可审计</td></tr>
+  <tr><td>成本（17 条 × 2 轮）</td><td class="hl2">$0.0022</td><td class="hl">$0.0197（≈ 9×）</td></tr>
+  <tr><td>延迟 p50 / p95</td><td class="hl2">0.67s / 0.84s</td><td class="hl">1.90s / 9.80s —— 长尾拖慢流水线</td></tr>
+  <tr><td>输出形态</td><td>校准概率（Choice/Score/Noul），可直接设阈值</td><td>自由文本，需解析、不稳定</td></tr>
+  <tr><td>拦截率（漏检口径）</td><td>0.9167</td><td>0.9167（打平）</td></tr>
+</table>
+<div class="cmp-note">如实记录：冗余条目（r15）Jev 与 LLM 同漏——non_redundant 是 Jev 弱项，流程层用编号级去重兜底。拦截率打平恰恰说明差异不在"能不能拦"，而在"拦错多少 + 是否稳定 + 多贵"。</div>
+</div>
+
+<div class="sec-title">⑥ 最值得带走的四个设计原则</div>
+<div class="card">
+  <div class="principle"><div class="no">1</div><div class="bd"><b>判断是主业，生成是副业</b><p>LLM 天生擅长生成（拆解、解释、扩写）；Jev 天生只做判断（校准概率、可复现）。各用所长：LLM 拆需求，Jev 判质量。</p></div></div>
+  <div class="principle"><div class="no">2</div><div class="bd"><b>保守分层，宁可转人工，不可错杀</b><p>中间带概率（0.25–0.75）绝不硬消，路由给人裁决。用 35% 转人工换取误打回 0——门禁只有不冤枉人，才会被团队信任、才可能成为硬门槛。</p></div></div>
+  <div class="principle"><div class="no">3</div><div class="bd"><b>全量判断，但打回只看可靠信号</b><p>22 个问题全问，但硬规则收敛到 6 个白名单信号；其余维度实测易误伤，降权为提示。判断维度多不等于规则多——规则要校准，不是堆砌。</p></div></div>
+  <div class="principle"><div class="no">4</div><div class="bd"><b>用模板把隐形知识逼成显式字段</b><p>术语表 / 假设清单 / 显式依赖声明，让自足性判断从"读全文猜"变成"对表判"——这直接回应了需求文档自足性这一根因痛点。</p></div></div>
+</div>
+
+<footer>jev-req-gate · 真实基准（17 条×2 轮，Jev vs DeepSeek V4 Flash，同协议）· 可复现：benchmarks/benchmark.py · MIT License</footer>
+</div>
+</body>
+</html>

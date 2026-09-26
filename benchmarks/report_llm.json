@@ -1,0 +1,532 @@
+{
+  "report": {
+    "backend": "llm",
+    "model": "deepseek-flash",
+    "test_set": "test_set.json",
+    "n": 17,
+    "runs_per_item": 2,
+    "intercept_recall": 0.9167,
+    "auto_block_recall": 0.9167,
+    "auto_pass_rate": 0.4,
+    "false_block_rate": 0.6,
+    "review_rate": 0.0,
+    "consistency": 0.9412,
+    "latency_p50": 1.9,
+    "latency_p95": 9.801,
+    "tokens_input": 6784,
+    "tokens_output": 14751,
+    "total_cost_usd": 0.019736
+  },
+  "details": [
+    {
+      "id": "r01",
+      "expected": "pass",
+      "runs": [
+        {
+          "verdict": "pass",
+          "reasons": [
+            "{\"verdict\":\"pass\",\"reason\":\"需求表述清晰、自足且可行，删除前检查订单引用并返回数量符合业务约束与平台规范。\"}"
+          ],
+          "latency": 2.2816362380981445,
+          "input_tokens": 212,
+          "output_tokens": 373,
+          "cost": 0.0005112,
+          "backend": "llm"
+        },
+        {
+          "verdict": "pass",
+          "reasons": [
+            "{\"verdict\":\"pass\",\"reason\":\"该需求明确要求阻止删除被订单引用的商品并返回引用订单数，表述清晰、可通过外键约束与计数查询实现，且符合数据完整性与平台上下文，无矛盾或不可行之处。\"}"
+          ],
+          "latency": 8.499356985092163,
+          "input_tokens": 212,
+          "output_tokens": 1451,
+          "cost": 0.0018048,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "pass"
+    },
+    {
+      "id": "r02",
+      "expected": "pass",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"未定义超时阈值、重试间隔及幂等/最终失败处理，支付网关重试可能导致重复结算，内容不自足且有歧义。\"}"
+          ],
+          "latency": 3.4397499561309814,
+          "input_tokens": 208,
+          "output_tokens": 622,
+          "cost": 0.0008088,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\":\"block\",\"reason\":\"结算重试未明确幂等/去重机制，可能导致重复结算或扣款，且“单点超时”表述不清、缺少超时阈值与退避策略，需求不自足。\"}"
+          ],
+          "latency": 5.1594579219818115,
+          "input_tokens": 208,
+          "output_tokens": 902,
+          "cost": 0.0011448,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r03",
+      "expected": "pass",
+      "runs": [
+        {
+          "verdict": "pass",
+          "reasons": [
+            "{\"verdict\": \"pass\", \"reason\": \"需求明确描述了库存不足时阻止下单并返回可选库存，且要求库存扣减与订单创建同事务以保证一致性，符合并发防超卖目标，可行且无矛盾。\"}"
+          ],
+          "latency": 5.336673974990845,
+          "input_tokens": 211,
+          "output_tokens": 1020,
+          "cost": 0.0012873000000000001,
+          "backend": "llm"
+        },
+        {
+          "verdict": "pass",
+          "reasons": [
+            "{\"verdict\": \"pass\", \"reason\": \"需求表述清晰无歧义，明确了库存不足时的阻挡与返回可用量行为，并给出同事务扣减的并发正确性约束，与库存域既有规范一致，内容自足且可落地。\"}"
+          ],
+          "latency": 1.323287010192871,
+          "input_tokens": 211,
+          "output_tokens": 205,
+          "cost": 0.0003093,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "pass"
+    },
+    {
+      "id": "r04",
+      "expected": "pass",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"「最大重试5次」与「保证至少送达一次」相互矛盾（重试耗尽即无法保证送达），且未定义指数退避的基数/上限与消费端幂等要求，无法判定可行与可实现。\"}"
+          ],
+          "latency": 1.9089457988739014,
+          "input_tokens": 212,
+          "output_tokens": 315,
+          "cost": 0.0004416,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\":\"block\",\"reason\":\"“最大重试5次”与“至少送达一次”存在冲突，且未说明超过重试上限后的死信/兜底、幂等消费及退避参数，需求不可验收。\"}"
+          ],
+          "latency": 5.604499101638794,
+          "input_tokens": 212,
+          "output_tokens": 944,
+          "cost": 0.0011964,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r05",
+      "expected": "pass",
+      "runs": [
+        {
+          "verdict": "pass",
+          "reasons": [
+            "{\"verdict\":\"pass\",\"reason\":\"该需求明确可配置项、默认值及调整方式，无歧义且不与现有上下文冲突，具备可行性。\"}"
+          ],
+          "latency": 13.82476282119751,
+          "input_tokens": 202,
+          "output_tokens": 2601,
+          "cost": 0.0031818,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\":\"block\",\"reason\":\"未明确具体外部接口、超时类型及配置键/生效方式，存在歧义，无法直接实施与验收。\"}"
+          ],
+          "latency": 9.800904989242554,
+          "input_tokens": 202,
+          "output_tokens": 1772,
+          "cost": 0.0021869999999999997,
+          "backend": "llm"
+        }
+      ],
+      "consistent": false,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r06",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"需求未说明具体问题、范围、验收标准与性能指标，表述含糊且不可验证，无法直接实施。\"}"
+          ],
+          "latency": 1.3413219451904297,
+          "input_tokens": 192,
+          "output_tokens": 90,
+          "cost": 0.00016560000000000001,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"该需求表述含糊，未说明问题现象、范围、复现条件、期望结果与验收标准，无法判定修复方案及可行性。\"}"
+          ],
+          "latency": 1.4697718620300293,
+          "input_tokens": 192,
+          "output_tokens": 121,
+          "cost": 0.0002028,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r07",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\":\"block\",\"reason\":\"该需求仅罗列多个功能点，缺乏具体范围、规则、验收标准及与库存/订单/支付约束的关联，内容不自足且有歧义。\"}"
+          ],
+          "latency": 6.369094133377075,
+          "input_tokens": 201,
+          "output_tokens": 173,
+          "cost": 0.0002679,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\":\"block\",\"reason\":\"该需求仅罗列多个功能点，缺乏具体行为、边界、验收标准和约束，表述笼统且内容不自足，无法直接实现与验收。\"}"
+          ],
+          "latency": 1.2453854084014893,
+          "input_tokens": 201,
+          "output_tokens": 118,
+          "cost": 0.0002019,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r08",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"需求未明确“既定结算惯例”和“老系统处理方式”的具体规则，内容不自足且存在歧义，无法据此实现与验证。\"}"
+          ],
+          "latency": 1.2063000202178955,
+          "input_tokens": 195,
+          "output_tokens": 161,
+          "cost": 0.0002517,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"需求引用“既定结算惯例”和“老系统处理方式”但未定义具体规则，内容不自足且有歧义，无法验证正确性与可行性。\"}"
+          ],
+          "latency": 1.2418439388275146,
+          "input_tokens": 195,
+          "output_tokens": 220,
+          "cost": 0.00032250000000000003,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r09",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\":\"block\",\"reason\":\"该需求擅自引入项目技术栈外的 Redis/Kafka，且未定义缓存一致性、过期策略及削峰消息主题/幂等等关键细节，表述歧义且不自足。\"}"
+          ],
+          "latency": 2.4107189178466797,
+          "input_tokens": 198,
+          "output_tokens": 471,
+          "cost": 0.0006246,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"该需求引入技术栈未声明的 Redis/Kafka 中间件，且未说明缓存范围、失效与一致性策略及削峰消息的可靠性要求，表述笼统、与既有技术栈约定存在冲突，不可直接落地。\"}"
+          ],
+          "latency": 2.7736611366271973,
+          "input_tokens": 198,
+          "output_tokens": 274,
+          "cost": 0.00038819999999999995,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r10",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"「支持跨境订单」表述过于笼统，未说明跨境订单的业务范围、字段/规则（如币种、关税、地址、清关）、与库存扣减及支付网关的交互方式及验收标准，内容不自足且存在多重歧义，无法据此实现"
+          ],
+          "latency": 2.483088970184326,
+          "input_tokens": 184,
+          "output_tokens": 114,
+          "cost": 0.000192,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"需求“支持跨境订单”表述过于笼统，未定义业务范围、币种/税率/清关/地址等规则及验收标准，无法判断可行性与实施。\"}"
+          ],
+          "latency": 1.5687768459320068,
+          "input_tokens": 184,
+          "output_tokens": 127,
+          "cost": 0.0002076,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r11",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\":\"block\",\"reason\":\"需求表述宽泛且自足性不足，未定义徽章与签到规则、奖励发放、数据模型、验收标准及与商品/订单/库存/支付约束的关系，无法评审与落地。\"}"
+          ],
+          "latency": 1.958111047744751,
+          "input_tokens": 200,
+          "output_tokens": 296,
+          "cost": 0.00041519999999999995,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"需求过于笼统，缺少徽章/签到的具体规则、数据模型、奖励发放与库存/订单/支付等既有域的交互及验收标准，无法直接实施与验证。\"}"
+          ],
+          "latency": 1.8903250694274902,
+          "input_tokens": 200,
+          "output_tokens": 232,
+          "cost": 0.0003384,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r12",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\":\"block\",\"reason\":\"该需求不可行且自相矛盾：依赖第三方征信服务全量拉取且要求任意网络波动下响应≤50毫秒，无法保证，同时每次刷新都拉全量也无必要。\"}"
+          ],
+          "latency": 1.5564639568328857,
+          "input_tokens": 211,
+          "output_tokens": 222,
+          "cost": 0.00032969999999999994,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"该需求依赖第三方外部服务却要求任何网络波动下响应不超过50毫秒，技术上不可行且无法保证，属于不合理/不可行要求。\"}"
+          ],
+          "latency": 1.5804800987243652,
+          "input_tokens": 211,
+          "output_tokens": 145,
+          "cost": 0.0002373,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r13",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\":\"block\",\"reason\":\"该需求与库存管理平台核心域无关且表述含糊，未说明AI生成方式、性能/可访问性约束及验收标准，无法直接实施与验证。\"}"
+          ],
+          "latency": 1.7302939891815186,
+          "input_tokens": 197,
+          "output_tokens": 230,
+          "cost": 0.00033509999999999996,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"该需求与电商库存管理平台的核心域（商品/订单/库存）无关且超出既定技术栈与规范范围，同时「五彩斑斓的动态背景」表述模糊、缺乏可验证的验收标准与实现方案，属于非必要且不可行的需求"
+          ],
+          "latency": 1.944343090057373,
+          "input_tokens": 197,
+          "output_tokens": 237,
+          "cost": 0.00034349999999999995,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r14",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"允许强制删除已被订单引用的商品会破坏订单引用与库存/对账数据完整性，且无需二次确认，违反平台约束，不可行且有风险。\"}"
+          ],
+          "latency": 3.0278239250183105,
+          "input_tokens": 196,
+          "output_tokens": 260,
+          "cost": 0.0003707999999999999,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"强制删除已被订单引用的商品会破坏订单引用约束与历史数据完整性，并与平台既有规范冲突，且免二次确认放大误操作风险。\"}"
+          ],
+          "latency": 2.568439245223999,
+          "input_tokens": 196,
+          "output_tokens": 220,
+          "cost": 0.00032280000000000004,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r15",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "pass",
+          "reasons": [
+            "{\"verdict\": \"pass\", \"reason\": \"该需求语义明确（商品存在订单引用时禁止删除），可通过外键 RESTRICT 约束在 PostgreSQL 层直接落地，与库存域既有约束逻辑一致，无歧义、可行且不与其他需求冲突。\""
+          ],
+          "latency": 1.7255527973175049,
+          "input_tokens": 188,
+          "output_tokens": 253,
+          "cost": 0.00036,
+          "backend": "llm"
+        },
+        {
+          "verdict": "pass",
+          "reasons": [
+            "{\"verdict\": \"pass\", \"reason\": \"该需求表述清晰无歧义，为商品删除提供了明确的引用约束规则，可通过外键 RESTRICT 或删除前校验实现，与库存/订单域既有约束一致，属必要且可行的业务规则。\"}"
+          ],
+          "latency": 1.3835079669952393,
+          "input_tokens": 188,
+          "output_tokens": 157,
+          "cost": 0.0002448,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "pass"
+    },
+    {
+      "id": "r16",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"表述过于笼统，未说明扣减时机、并发与幂等策略、订单引用约束、失败回滚及验收标准，无法判定歧义与可行性，需补充细化后再评审。\"}"
+          ],
+          "latency": 1.2776288986206055,
+          "input_tokens": 186,
+          "output_tokens": 121,
+          "cost": 0.000201,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"需求仅写“实现库存扣减功能”，未说明扣减触发条件、并发与幂等策略、订单引用约束、失败回滚及接口契约，表述含糊且内容不自足，无法直接开发与验收。\"}"
+          ],
+          "latency": 0.9750688076019287,
+          "input_tokens": 186,
+          "output_tokens": 127,
+          "cost": 0.0002082,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    },
+    {
+      "id": "r17",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"导出历史密码明文严重违反安全与合规规范，且不应以明文存储或迁移密码。\"}"
+          ],
+          "latency": 0.8738551139831543,
+          "input_tokens": 199,
+          "output_tokens": 79,
+          "cost": 0.0001545,
+          "backend": "llm"
+        },
+        {
+          "verdict": "block",
+          "reasons": [
+            "{\"verdict\": \"block\", \"reason\": \"导出历史密码明文违反安全与平台规范，且新系统不应导入明文密码，应改为哈希迁移或强制重置。\"}"
+          ],
+          "latency": 1.1561648845672607,
+          "input_tokens": 199,
+          "output_tokens": 98,
+          "cost": 0.00017729999999999997,
+          "backend": "llm"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "block"
+    }
+  ]
+}

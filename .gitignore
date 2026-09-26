@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# 测试/覆盖率
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 编辑器/OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# 本地输出
+*.csv
+!examples/*.csv
+
+# 预览缓存
+.preview/

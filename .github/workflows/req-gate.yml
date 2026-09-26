@@ -1,0 +1,29 @@
+name: "Requirement Gate (PR)"
+
+# Gates changed requirement files on every PR. Run it as a required check to
+# stop blocked requirements from being merged. This example gates the bundled
+# demo set; point `requirements-file` / `document-file` at your own files.
+
+on:
+  pull_request:
+    paths:
+      - "requirements*/**"
+      - "**/requirements*.json"
+      - "**/*.req*"
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/jev-req-gate
+        with:
+          requirements-file: "examples/document_demo.json"
+          document-file: "examples/document_demo.json"
+          project-context: >-
+            E-commerce inventory platform: Python/PostgreSQL; order-reference
+            constraints and concurrency on stock deduction; settlement depends
+            on an internal payment gateway.
+          typesafe-api-key: ${{ secrets.TYPESAFE_API_KEY }}
+          exit-on-block: "true"

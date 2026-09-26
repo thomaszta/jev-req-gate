@@ -1,0 +1,5004 @@
+{
+  "report": {
+    "backend": "jev",
+    "model": "jev-latest",
+    "test_set": "test_set.json",
+    "n": 17,
+    "runs_per_item": 2,
+    "intercept_recall": 0.9167,
+    "auto_block_recall": 0.6667,
+    "auto_pass_rate": 0.4,
+    "false_block_rate": 0.0,
+    "review_rate": 0.3529,
+    "consistency": 1.0,
+    "latency_p50": 0.669,
+    "latency_p95": 0.838,
+    "tokens_input": 51550,
+    "tokens_output": 17329,
+    "total_cost_usd": 0.002165
+  },
+  "details": [
+    {
+      "id": "r01",
+      "expected": "pass",
+      "runs": [
+        {
+          "verdict": "green",
+          "reasons": [],
+          "answers": {
+            "clarity": {
+              "score": 2.8,
+              "confidence": 0.73,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.78,
+              "confidence": 0.43,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.66,
+              "confidence": 0.72,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 2.09,
+              "confidence": 0.6,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.64
+            },
+            "terminology_defined": {
+              "noul": 0.24
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.76
+            },
+            "implementation_free": {
+              "noul": 0.16
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.44,
+              "probabilities": {
+                "terminology": 0.01,
+                "boundary": 0.41,
+                "dependency": 0.01,
+                "none": 0.01,
+                "acceptance": 0.54,
+                "prerequisite": 0.02
+              }
+            },
+            "correct": {
+              "noul": 0.88
+            },
+            "feasible": {
+              "noul": 0.91
+            },
+            "necessary": {
+              "noul": 0.85
+            },
+            "traceable": {
+              "noul": 0.5
+            },
+            "fidelity": {
+              "noul": 0.92
+            },
+            "consistent_internal": {
+              "noul": 0.88
+            },
+            "contradicts_siblings": {
+              "noul": 0.15
+            },
+            "non_redundant": {
+              "noul": 0.71
+            },
+            "dependencies_declared": {
+              "noul": 0.35
+            },
+            "conforms_template": {
+              "noul": 0.58
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.91,
+              "probabilities": {
+                "nfr": 0.0,
+                "constraint": 0.07,
+                "feature": 0.93,
+                "assumption": 0.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.57,
+              "probabilities": {
+                "wont": 0.0,
+                "should": 0.31,
+                "could": 0.0,
+                "must": 0.6900000000000001
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.55,
+              "probabilities": {
+                "low": 0.2,
+                "high": 0.1,
+                "mid": 0.7
+              }
+            }
+          },
+          "latency": 0.642042875289917,
+          "input_tokens": 1538,
+          "output_tokens": 510,
+          "cost": 6.4596e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "green",
+          "reasons": [],
+          "answers": {
+            "clarity": {
+              "score": 2.83,
+              "confidence": 0.73,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.76,
+              "confidence": 0.45,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.69,
+              "confidence": 0.74,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 2.13,
+              "confidence": 0.6,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.62
+            },
+            "terminology_defined": {
+              "noul": 0.24
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.77
+            },
+            "implementation_free": {
+              "noul": 0.17
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.41,
+              "probabilities": {
+                "dependency": 0.01,
+                "boundary": 0.42,
+                "acceptance": 0.51,
+                "prerequisite": 0.03,
+                "terminology": 0.02,
+                "none": 0.01
+              }
+            },
+            "correct": {
+              "noul": 0.87
+            },
+            "feasible": {
+              "noul": 0.91
+            },
+            "necessary": {
+              "noul": 0.85
+            },
+            "traceable": {
+              "noul": 0.52
+            },
+            "fidelity": {
+              "noul": 0.92
+            },
+            "consistent_internal": {
+              "noul": 0.88
+            },
+            "contradicts_siblings": {
+              "noul": 0.15
+            },
+            "non_redundant": {
+              "noul": 0.68
+            },
+            "dependencies_declared": {
+              "noul": 0.32
+            },
+            "conforms_template": {
+              "noul": 0.57
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.92,
+              "probabilities": {
+                "constraint": 0.06,
+                "feature": 0.94,
+                "assumption": 0.0,
+                "nfr": 0.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.56,
+              "probabilities": {
+                "should": 0.32,
+                "could": 0.0,
+                "must": 0.68,
+                "wont": 0.0
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.56,
+              "probabilities": {
+                "high": 0.08,
+                "low": 0.22,
+                "mid": 0.7
+              }
+            }
+          },
+          "latency": 0.5886950492858887,
+          "input_tokens": 1538,
+          "output_tokens": 510,
+          "cost": 6.4596e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "green"
+    },
+    {
+      "id": "r02",
+      "expected": "pass",
+      "runs": [
+        {
+          "verdict": "yellow",
+          "reasons": [
+            "self_contained=0.42 < 0.5",
+            "质量均分 2.13 < 2.2",
+            "terminology_defined=0.21 偏低，需人工核对",
+            "共 6 个维度不确定(self_contained, implementation_free, traceable, non_redundant, dependencies_declared, conforms_template)，需人工复核",
+            "atomicity confidence=0.00 偏低",
+            "completeness confidence=0.57 偏低"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.61,
+              "confidence": 0.66,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.23,
+              "confidence": 0.76,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 2.78,
+              "confidence": 0.0,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.9,
+              "confidence": 0.57,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.42
+            },
+            "terminology_defined": {
+              "noul": 0.21
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.78
+            },
+            "implementation_free": {
+              "noul": 0.57
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.39,
+              "probabilities": {
+                "boundary": 0.43,
+                "acceptance": 0.5,
+                "dependency": 0.06,
+                "terminology": 0.0,
+                "prerequisite": 0.01,
+                "none": 0.0
+              }
+            },
+            "correct": {
+              "noul": 0.85
+            },
+            "feasible": {
+              "noul": 0.89
+            },
+            "necessary": {
+              "noul": 0.87
+            },
+            "traceable": {
+              "noul": 0.51
+            },
+            "fidelity": {
+              "noul": 0.9
+            },
+            "consistent_internal": {
+              "noul": 0.87
+            },
+            "contradicts_siblings": {
+              "noul": 0.16
+            },
+            "non_redundant": {
+              "noul": 0.7
+            },
+            "dependencies_declared": {
+              "noul": 0.46
+            },
+            "conforms_template": {
+              "noul": 0.56
+            },
+            "req_type": {
+              "choice": "nfr",
+              "confidence": 0.56,
+              "probabilities": {
+                "assumption": 0.0,
+                "feature": 0.31,
+                "constraint": 0.02,
+                "nfr": 0.67
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.69,
+              "probabilities": {
+                "must": 0.77,
+                "wont": 0.0,
+                "could": 0.0,
+                "should": 0.23
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.33,
+              "probabilities": {
+                "mid": 0.55,
+                "high": 0.43,
+                "low": 0.02
+              }
+            }
+          },
+          "latency": 0.5987119674682617,
+          "input_tokens": 1526,
+          "output_tokens": 511,
+          "cost": 6.409200000000001e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "yellow",
+          "reasons": [
+            "self_contained=0.42 < 0.5",
+            "质量均分 2.07 < 2.2",
+            "terminology_defined=0.22 偏低，需人工核对",
+            "共 6 个维度不确定(self_contained, implementation_free, traceable, non_redundant, dependencies_declared, conforms_template)，需人工复核",
+            "atomicity confidence=0.24 偏低",
+            "completeness confidence=0.57 偏低"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.58,
+              "confidence": 0.64,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.17,
+              "confidence": 0.77,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 2.62,
+              "confidence": 0.24,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.9,
+              "confidence": 0.57,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.42
+            },
+            "terminology_defined": {
+              "noul": 0.22
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.78
+            },
+            "implementation_free": {
+              "noul": 0.55
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.39,
+              "probabilities": {
+                "acceptance": 0.5,
+                "boundary": 0.4,
+                "dependency": 0.09,
+                "terminology": 0.0,
+                "none": 0.0,
+                "prerequisite": 0.01
+              }
+            },
+            "correct": {
+              "noul": 0.86
+            },
+            "feasible": {
+              "noul": 0.88
+            },
+            "necessary": {
+              "noul": 0.87
+            },
+            "traceable": {
+              "noul": 0.49
+            },
+            "fidelity": {
+              "noul": 0.9
+            },
+            "consistent_internal": {
+              "noul": 0.87
+            },
+            "contradicts_siblings": {
+              "noul": 0.16
+            },
+            "non_redundant": {
+              "noul": 0.7
+            },
+            "dependencies_declared": {
+              "noul": 0.44
+            },
+            "conforms_template": {
+              "noul": 0.57
+            },
+            "req_type": {
+              "choice": "nfr",
+              "confidence": 0.48,
+              "probabilities": {
+                "assumption": 0.0,
+                "feature": 0.37,
+                "constraint": 0.02,
+                "nfr": 0.61
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.72,
+              "probabilities": {
+                "should": 0.21,
+                "could": 0.0,
+                "must": 0.79,
+                "wont": 0.0
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.32,
+              "probabilities": {
+                "low": 0.02,
+                "high": 0.43,
+                "mid": 0.55
+              }
+            }
+          },
+          "latency": 0.6664261817932129,
+          "input_tokens": 1526,
+          "output_tokens": 511,
+          "cost": 6.409200000000001e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "yellow"
+    },
+    {
+      "id": "r03",
+      "expected": "pass",
+      "runs": [
+        {
+          "verdict": "yellow",
+          "reasons": [
+            "self_contained=0.49 < 0.5",
+            "质量均分 2.06 < 2.2",
+            "风险等级=high，需人工复核",
+            "terminology_defined=0.21 偏低，需人工核对",
+            "共 7 个维度不确定(self_contained, acceptance_quantifiable, implementation_free, traceable, non_redundant, dependencies_declared, conforms_template)，需人工复核",
+            "atomicity confidence=0.36 偏低",
+            "completeness confidence=0.54 偏低"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.79,
+              "confidence": 0.76,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.41,
+              "confidence": 0.63,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 1.75,
+              "confidence": 0.36,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 2.27,
+              "confidence": 0.54,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.49
+            },
+            "terminology_defined": {
+              "noul": 0.21
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.67
+            },
+            "implementation_free": {
+              "noul": 0.39
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.55,
+              "probabilities": {
+                "dependency": 0.01,
+                "none": 0.01,
+                "acceptance": 0.63,
+                "prerequisite": 0.01,
+                "terminology": 0.0,
+                "boundary": 0.34
+              }
+            },
+            "correct": {
+              "noul": 0.9
+            },
+            "feasible": {
+              "noul": 0.91
+            },
+            "necessary": {
+              "noul": 0.89
+            },
+            "traceable": {
+              "noul": 0.54
+            },
+            "fidelity": {
+              "noul": 0.89
+            },
+            "consistent_internal": {
+              "noul": 0.87
+            },
+            "contradicts_siblings": {
+              "noul": 0.17
+            },
+            "non_redundant": {
+              "noul": 0.63
+            },
+            "dependencies_declared": {
+              "noul": 0.38
+            },
+            "conforms_template": {
+              "noul": 0.6
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.9,
+              "probabilities": {
+                "assumption": 0.0,
+                "feature": 0.92,
+                "nfr": 0.01,
+                "constraint": 0.07
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.99,
+              "probabilities": {
+                "should": 0.01,
+                "wont": 0.0,
+                "could": 0.0,
+                "must": 0.99
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.77,
+              "probabilities": {
+                "mid": 0.15,
+                "low": 0.0,
+                "high": 0.85
+              }
+            }
+          },
+          "latency": 0.5822558403015137,
+          "input_tokens": 1533,
+          "output_tokens": 510,
+          "cost": 6.4386e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "yellow",
+          "reasons": [
+            "self_contained=0.48 < 0.5",
+            "质量均分 2.10 < 2.2",
+            "风险等级=high，需人工复核",
+            "terminology_defined=0.20 偏低，需人工核对",
+            "共 7 个维度不确定(self_contained, acceptance_quantifiable, implementation_free, traceable, non_redundant, dependencies_declared, conforms_template)，需人工复核",
+            "readability confidence=0.52 偏低",
+            "atomicity confidence=0.36 偏低",
+            "completeness confidence=0.54 偏低"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.83,
+              "confidence": 0.8,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.55,
+              "confidence": 0.52,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 1.75,
+              "confidence": 0.36,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 2.27,
+              "confidence": 0.54,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.48
+            },
+            "terminology_defined": {
+              "noul": 0.2
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.65
+            },
+            "implementation_free": {
+              "noul": 0.37
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.61,
+              "probabilities": {
+                "prerequisite": 0.01,
+                "acceptance": 0.67,
+                "dependency": 0.01,
+                "none": 0.01,
+                "terminology": 0.0,
+                "boundary": 0.3
+              }
+            },
+            "correct": {
+              "noul": 0.9
+            },
+            "feasible": {
+              "noul": 0.91
+            },
+            "necessary": {
+              "noul": 0.89
+            },
+            "traceable": {
+              "noul": 0.52
+            },
+            "fidelity": {
+              "noul": 0.88
+            },
+            "consistent_internal": {
+              "noul": 0.87
+            },
+            "contradicts_siblings": {
+              "noul": 0.17
+            },
+            "non_redundant": {
+              "noul": 0.64
+            },
+            "dependencies_declared": {
+              "noul": 0.35
+            },
+            "conforms_template": {
+              "noul": 0.59
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.88,
+              "probabilities": {
+                "nfr": 0.01,
+                "feature": 0.91,
+                "assumption": 0.0,
+                "constraint": 0.08
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.99,
+              "probabilities": {
+                "wont": 0.0,
+                "must": 0.99,
+                "could": 0.0,
+                "should": 0.01
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.78,
+              "probabilities": {
+                "low": 0.0,
+                "high": 0.86,
+                "mid": 0.14
+              }
+            }
+          },
+          "latency": 0.6825978755950928,
+          "input_tokens": 1533,
+          "output_tokens": 510,
+          "cost": 6.4386e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "yellow"
+    },
+    {
+      "id": "r04",
+      "expected": "pass",
+      "runs": [
+        {
+          "verdict": "yellow",
+          "reasons": [
+            "self_contained=0.37 < 0.5",
+            "质量均分 2.14 < 2.2",
+            "terminology_defined=0.18 偏低，需人工核对",
+            "共 7 个维度不确定(self_contained, acceptance_quantifiable, implementation_free, traceable, non_redundant, dependencies_declared, conforms_template)，需人工复核",
+            "clarity confidence=0.55 偏低",
+            "atomicity confidence=0.33 偏低",
+            "completeness confidence=0.52 偏低"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.49,
+              "confidence": 0.55,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.04,
+              "confidence": 0.87,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.19,
+              "confidence": 0.33,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.82,
+              "confidence": 0.52,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.37
+            },
+            "terminology_defined": {
+              "noul": 0.18
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.75
+            },
+            "implementation_free": {
+              "noul": 0.57
+            },
+            "missing_info": {
+              "choice": "boundary",
+              "confidence": 0.27,
+              "probabilities": {
+                "terminology": 0.0,
+                "dependency": 0.22,
+                "prerequisite": 0.01,
+                "none": 0.01,
+                "acceptance": 0.37,
+                "boundary": 0.39
+              }
+            },
+            "correct": {
+              "noul": 0.86
+            },
+            "feasible": {
+              "noul": 0.89
+            },
+            "necessary": {
+              "noul": 0.85
+            },
+            "traceable": {
+              "noul": 0.53
+            },
+            "fidelity": {
+              "noul": 0.86
+            },
+            "consistent_internal": {
+              "noul": 0.85
+            },
+            "contradicts_siblings": {
+              "noul": 0.17
+            },
+            "non_redundant": {
+              "noul": 0.65
+            },
+            "dependencies_declared": {
+              "noul": 0.29
+            },
+            "conforms_template": {
+              "noul": 0.55
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.77,
+              "probabilities": {
+                "feature": 0.83,
+                "nfr": 0.16,
+                "assumption": 0.0,
+                "constraint": 0.01
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.93,
+              "probabilities": {
+                "wont": 0.0,
+                "should": 0.05,
+                "could": 0.0,
+                "must": 0.95
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.25,
+              "probabilities": {
+                "low": 0.01,
+                "mid": 0.5,
+                "high": 0.49
+              }
+            }
+          },
+          "latency": 0.6768147945404053,
+          "input_tokens": 1535,
+          "output_tokens": 508,
+          "cost": 6.447e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "yellow",
+          "reasons": [
+            "self_contained=0.39 < 0.5",
+            "质量均分 2.12 < 2.2",
+            "风险等级=high，需人工复核",
+            "terminology_defined=0.19 偏低，需人工核对",
+            "共 7 个维度不确定(self_contained, acceptance_quantifiable, implementation_free, traceable, non_redundant, dependencies_declared, conforms_template)，需人工复核",
+            "clarity confidence=0.55 偏低",
+            "atomicity confidence=0.27 偏低",
+            "completeness confidence=0.54 偏低"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.49,
+              "confidence": 0.55,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.05,
+              "confidence": 0.87,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.13,
+              "confidence": 0.27,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.83,
+              "confidence": 0.54,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.39
+            },
+            "terminology_defined": {
+              "noul": 0.19
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.74
+            },
+            "implementation_free": {
+              "noul": 0.55
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.29,
+              "probabilities": {
+                "terminology": 0.0,
+                "none": 0.01,
+                "prerequisite": 0.02,
+                "dependency": 0.23,
+                "boundary": 0.34,
+                "acceptance": 0.39999999999999997
+              }
+            },
+            "correct": {
+              "noul": 0.87
+            },
+            "feasible": {
+              "noul": 0.89
+            },
+            "necessary": {
+              "noul": 0.86
+            },
+            "traceable": {
+              "noul": 0.52
+            },
+            "fidelity": {
+              "noul": 0.87
+            },
+            "consistent_internal": {
+              "noul": 0.84
+            },
+            "contradicts_siblings": {
+              "noul": 0.17
+            },
+            "non_redundant": {
+              "noul": 0.64
+            },
+            "dependencies_declared": {
+              "noul": 0.31
+            },
+            "conforms_template": {
+              "noul": 0.56
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.8,
+              "probabilities": {
+                "feature": 0.85,
+                "assumption": 0.0,
+                "nfr": 0.14,
+                "constraint": 0.01
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.93,
+              "probabilities": {
+                "should": 0.05,
+                "wont": 0.0,
+                "could": 0.0,
+                "must": 0.95
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.33,
+              "probabilities": {
+                "mid": 0.44,
+                "low": 0.01,
+                "high": 0.55
+              }
+            }
+          },
+          "latency": 0.7168660163879395,
+          "input_tokens": 1535,
+          "output_tokens": 510,
+          "cost": 6.447e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "yellow"
+    },
+    {
+      "id": "r05",
+      "expected": "pass",
+      "runs": [
+        {
+          "verdict": "green",
+          "reasons": [],
+          "answers": {
+            "clarity": {
+              "score": 2.96,
+              "confidence": 0.8,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.05,
+              "confidence": 0.84,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.61,
+              "confidence": 0.67,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 2.2,
+              "confidence": 0.6,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.55
+            },
+            "terminology_defined": {
+              "noul": 0.19
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.79
+            },
+            "implementation_free": {
+              "noul": 0.24
+            },
+            "missing_info": {
+              "choice": "boundary",
+              "confidence": 0.44,
+              "probabilities": {
+                "acceptance": 0.41,
+                "none": 0.01,
+                "boundary": 0.53,
+                "dependency": 0.04,
+                "prerequisite": 0.0,
+                "terminology": 0.01
+              }
+            },
+            "correct": {
+              "noul": 0.87
+            },
+            "feasible": {
+              "noul": 0.91
+            },
+            "necessary": {
+              "noul": 0.85
+            },
+            "traceable": {
+              "noul": 0.45
+            },
+            "fidelity": {
+              "noul": 0.9
+            },
+            "consistent_internal": {
+              "noul": 0.88
+            },
+            "contradicts_siblings": {
+              "noul": 0.14
+            },
+            "non_redundant": {
+              "noul": 0.73
+            },
+            "dependencies_declared": {
+              "noul": 0.26
+            },
+            "conforms_template": {
+              "noul": 0.61
+            },
+            "req_type": {
+              "choice": "nfr",
+              "confidence": 0.66,
+              "probabilities": {
+                "nfr": 0.75,
+                "feature": 0.24,
+                "assumption": 0.0,
+                "constraint": 0.01
+              }
+            },
+            "priority": {
+              "choice": "should",
+              "confidence": 0.58,
+              "probabilities": {
+                "must": 0.28,
+                "wont": 0.0,
+                "should": 0.69,
+                "could": 0.03
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.37,
+              "probabilities": {
+                "mid": 0.58,
+                "high": 0.03,
+                "low": 0.39
+              }
+            }
+          },
+          "latency": 0.6414570808410645,
+          "input_tokens": 1521,
+          "output_tokens": 509,
+          "cost": 6.388200000000001e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "green",
+          "reasons": [],
+          "answers": {
+            "clarity": {
+              "score": 3.01,
+              "confidence": 0.8,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.09,
+              "confidence": 0.83,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.64,
+              "confidence": 0.7,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 2.22,
+              "confidence": 0.59,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.55
+            },
+            "terminology_defined": {
+              "noul": 0.2
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.8
+            },
+            "implementation_free": {
+              "noul": 0.24
+            },
+            "missing_info": {
+              "choice": "boundary",
+              "confidence": 0.41,
+              "probabilities": {
+                "dependency": 0.03,
+                "none": 0.01,
+                "terminology": 0.01,
+                "acceptance": 0.45,
+                "prerequisite": 0.0,
+                "boundary": 0.5
+              }
+            },
+            "correct": {
+              "noul": 0.87
+            },
+            "feasible": {
+              "noul": 0.91
+            },
+            "necessary": {
+              "noul": 0.85
+            },
+            "traceable": {
+              "noul": 0.46
+            },
+            "fidelity": {
+              "noul": 0.9
+            },
+            "consistent_internal": {
+              "noul": 0.87
+            },
+            "contradicts_siblings": {
+              "noul": 0.14
+            },
+            "non_redundant": {
+              "noul": 0.74
+            },
+            "dependencies_declared": {
+              "noul": 0.26
+            },
+            "conforms_template": {
+              "noul": 0.61
+            },
+            "req_type": {
+              "choice": "nfr",
+              "confidence": 0.64,
+              "probabilities": {
+                "constraint": 0.01,
+                "nfr": 0.73,
+                "feature": 0.26,
+                "assumption": 0.0
+              }
+            },
+            "priority": {
+              "choice": "should",
+              "confidence": 0.6,
+              "probabilities": {
+                "could": 0.03,
+                "wont": 0.0,
+                "must": 0.27,
+                "should": 0.7
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.39,
+              "probabilities": {
+                "mid": 0.59,
+                "low": 0.38,
+                "high": 0.03
+              }
+            }
+          },
+          "latency": 0.6130433082580566,
+          "input_tokens": 1521,
+          "output_tokens": 509,
+          "cost": 6.388200000000001e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "green"
+    },
+    {
+      "id": "r06",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "red",
+          "reasons": [
+            "self_contained=0.26 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 1.57,
+              "confidence": 0.58,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.69,
+              "confidence": 0.0,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.47,
+              "confidence": 0.55,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.7,
+              "confidence": 0.66,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.26
+            },
+            "terminology_defined": {
+              "noul": 0.24
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.38
+            },
+            "implementation_free": {
+              "noul": 0.09
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.94,
+              "probabilities": {
+                "none": 0.0,
+                "dependency": 0.0,
+                "terminology": 0.0,
+                "acceptance": 0.96,
+                "prerequisite": 0.0,
+                "boundary": 0.04
+              }
+            },
+            "correct": {
+              "noul": 0.85
+            },
+            "feasible": {
+              "noul": 0.84
+            },
+            "necessary": {
+              "noul": 0.86
+            },
+            "traceable": {
+              "noul": 0.75
+            },
+            "fidelity": {
+              "noul": 0.89
+            },
+            "consistent_internal": {
+              "noul": 0.68
+            },
+            "contradicts_siblings": {
+              "noul": 0.16
+            },
+            "non_redundant": {
+              "noul": 0.66
+            },
+            "dependencies_declared": {
+              "noul": 0.22
+            },
+            "conforms_template": {
+              "noul": 0.38
+            },
+            "req_type": {
+              "choice": "nfr",
+              "confidence": 0.35,
+              "probabilities": {
+                "constraint": 0.04,
+                "nfr": 0.52,
+                "assumption": 0.0,
+                "feature": 0.44
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.91,
+              "probabilities": {
+                "wont": 0.0,
+                "could": 0.0,
+                "should": 0.07,
+                "must": 0.93
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.84,
+              "probabilities": {
+                "low": 0.0,
+                "high": 0.9,
+                "mid": 0.1
+              }
+            }
+          },
+          "latency": 0.6920559406280518,
+          "input_tokens": 1505,
+          "output_tokens": 511,
+          "cost": 6.321e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "red",
+          "reasons": [
+            "self_contained=0.27 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 1.52,
+              "confidence": 0.56,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.56,
+              "confidence": 0.19,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.41,
+              "confidence": 0.51,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.63,
+              "confidence": 0.64,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.27
+            },
+            "terminology_defined": {
+              "noul": 0.26
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.38
+            },
+            "implementation_free": {
+              "noul": 0.09
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.94,
+              "probabilities": {
+                "dependency": 0.0,
+                "boundary": 0.03,
+                "terminology": 0.01,
+                "none": 0.0,
+                "prerequisite": 0.01,
+                "acceptance": 0.95
+              }
+            },
+            "correct": {
+              "noul": 0.83
+            },
+            "feasible": {
+              "noul": 0.83
+            },
+            "necessary": {
+              "noul": 0.86
+            },
+            "traceable": {
+              "noul": 0.75
+            },
+            "fidelity": {
+              "noul": 0.88
+            },
+            "consistent_internal": {
+              "noul": 0.7
+            },
+            "contradicts_siblings": {
+              "noul": 0.16
+            },
+            "non_redundant": {
+              "noul": 0.66
+            },
+            "dependencies_declared": {
+              "noul": 0.21
+            },
+            "conforms_template": {
+              "noul": 0.38
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.33,
+              "probabilities": {
+                "nfr": 0.47,
+                "constraint": 0.03,
+                "feature": 0.5,
+                "assumption": 0.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.9,
+              "probabilities": {
+                "must": 0.93,
+                "could": 0.0,
+                "wont": 0.0,
+                "should": 0.07
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.85,
+              "probabilities": {
+                "mid": 0.1,
+                "high": 0.9,
+                "low": 0.0
+              }
+            }
+          },
+          "latency": 0.6511099338531494,
+          "input_tokens": 1505,
+          "output_tokens": 510,
+          "cost": 6.321e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "red"
+    },
+    {
+      "id": "r07",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "yellow",
+          "reasons": [
+            "质量均分 1.52 < 2.0",
+            "self_contained=0.33 < 0.5",
+            "acceptance_quantifiable=0.36 < 0.6",
+            "non_redundant=0.58 < 0.6",
+            "质量均分 1.52 < 2.2",
+            "terminology_defined=0.21 偏低，需人工核对",
+            "共 6 个维度不确定(self_contained, acceptance_quantifiable, traceable, non_redundant, dependencies_declared, conforms_template)，需人工复核",
+            "clarity confidence=0.52 偏低",
+            "readability confidence=0.27 偏低",
+            "completeness confidence=0.52 偏低"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.45,
+              "confidence": 0.52,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.87,
+              "confidence": 0.27,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 0.24,
+              "confidence": 0.8,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.51,
+              "confidence": 0.52,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.33
+            },
+            "terminology_defined": {
+              "noul": 0.21
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.36
+            },
+            "implementation_free": {
+              "noul": 0.17
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.72,
+              "probabilities": {
+                "acceptance": 0.77,
+                "none": 0.0,
+                "dependency": 0.01,
+                "prerequisite": 0.01,
+                "boundary": 0.21,
+                "terminology": 0.0
+              }
+            },
+            "correct": {
+              "noul": 0.77
+            },
+            "feasible": {
+              "noul": 0.89
+            },
+            "necessary": {
+              "noul": 0.82
+            },
+            "traceable": {
+              "noul": 0.52
+            },
+            "fidelity": {
+              "noul": 0.86
+            },
+            "consistent_internal": {
+              "noul": 0.8
+            },
+            "contradicts_siblings": {
+              "noul": 0.16
+            },
+            "non_redundant": {
+              "noul": 0.58
+            },
+            "dependencies_declared": {
+              "noul": 0.43
+            },
+            "conforms_template": {
+              "noul": 0.53
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 1.0,
+              "probabilities": {
+                "constraint": 0.0,
+                "feature": 1.0,
+                "nfr": 0.0,
+                "assumption": 0.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.95,
+              "probabilities": {
+                "should": 0.03,
+                "could": 0.0,
+                "must": 0.97,
+                "wont": 0.0
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.39,
+              "probabilities": {
+                "high": 0.4,
+                "low": 0.0,
+                "mid": 0.6
+              }
+            }
+          },
+          "latency": 0.7794349193572998,
+          "input_tokens": 1518,
+          "output_tokens": 510,
+          "cost": 6.3756e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "yellow",
+          "reasons": [
+            "质量均分 1.51 < 2.0",
+            "self_contained=0.32 < 0.5",
+            "acceptance_quantifiable=0.39 < 0.6",
+            "non_redundant=0.59 < 0.6",
+            "质量均分 1.51 < 2.2",
+            "terminology_defined=0.20 偏低，需人工核对",
+            "共 6 个维度不确定(self_contained, acceptance_quantifiable, traceable, non_redundant, dependencies_declared, conforms_template)，需人工复核",
+            "clarity confidence=0.58 偏低",
+            "readability confidence=0.28 偏低",
+            "completeness confidence=0.51 偏低"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.36,
+              "confidence": 0.58,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.85,
+              "confidence": 0.28,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 0.3,
+              "confidence": 0.75,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.52,
+              "confidence": 0.51,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.32
+            },
+            "terminology_defined": {
+              "noul": 0.2
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.39
+            },
+            "implementation_free": {
+              "noul": 0.17
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.68,
+              "probabilities": {
+                "dependency": 0.01,
+                "none": 0.01,
+                "boundary": 0.24,
+                "acceptance": 0.73,
+                "prerequisite": 0.01,
+                "terminology": 0.0
+              }
+            },
+            "correct": {
+              "noul": 0.76
+            },
+            "feasible": {
+              "noul": 0.88
+            },
+            "necessary": {
+              "noul": 0.83
+            },
+            "traceable": {
+              "noul": 0.51
+            },
+            "fidelity": {
+              "noul": 0.87
+            },
+            "consistent_internal": {
+              "noul": 0.8
+            },
+            "contradicts_siblings": {
+              "noul": 0.15
+            },
+            "non_redundant": {
+              "noul": 0.59
+            },
+            "dependencies_declared": {
+              "noul": 0.43
+            },
+            "conforms_template": {
+              "noul": 0.52
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 1.0,
+              "probabilities": {
+                "constraint": 0.0,
+                "nfr": 0.0,
+                "assumption": 0.0,
+                "feature": 1.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.95,
+              "probabilities": {
+                "wont": 0.0,
+                "could": 0.0,
+                "should": 0.03,
+                "must": 0.97
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.35,
+              "probabilities": {
+                "low": 0.0,
+                "high": 0.43,
+                "mid": 0.57
+              }
+            }
+          },
+          "latency": 0.6169888973236084,
+          "input_tokens": 1518,
+          "output_tokens": 510,
+          "cost": 6.3756e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "yellow"
+    },
+    {
+      "id": "r08",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "yellow",
+          "reasons": [
+            "质量均分 1.89 < 2.0",
+            "self_contained=0.33 < 0.5",
+            "acceptance_quantifiable=0.28 < 0.6",
+            "non_redundant=0.58 < 0.6",
+            "质量均分 1.89 < 2.2",
+            "共 9 个维度不确定(self_contained, terminology_defined, acceptance_quantifiable, implementation_free, correct, traceable, non_redundant, dependencies_declared, conforms_template)，需人工复核",
+            "clarity confidence=0.56 偏低",
+            "readability confidence=0.52 偏低",
+            "atomicity confidence=0.57 偏低"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 1.72,
+              "confidence": 0.56,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.51,
+              "confidence": 0.52,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.48,
+              "confidence": 0.57,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.85,
+              "confidence": 0.6,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.33
+            },
+            "terminology_defined": {
+              "noul": 0.3
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.28
+            },
+            "implementation_free": {
+              "noul": 0.51
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.43,
+              "probabilities": {
+                "terminology": 0.15,
+                "prerequisite": 0.01,
+                "none": 0.02,
+                "dependency": 0.01,
+                "acceptance": 0.53,
+                "boundary": 0.28
+              }
+            },
+            "correct": {
+              "noul": 0.68
+            },
+            "feasible": {
+              "noul": 0.86
+            },
+            "necessary": {
+              "noul": 0.77
+            },
+            "traceable": {
+              "noul": 0.48
+            },
+            "fidelity": {
+              "noul": 0.89
+            },
+            "consistent_internal": {
+              "noul": 0.8
+            },
+            "contradicts_siblings": {
+              "noul": 0.21
+            },
+            "non_redundant": {
+              "noul": 0.58
+            },
+            "dependencies_declared": {
+              "noul": 0.47
+            },
+            "conforms_template": {
+              "noul": 0.5
+            },
+            "req_type": {
+              "choice": "constraint",
+              "confidence": 0.91,
+              "probabilities": {
+                "feature": 0.06,
+                "constraint": 0.9400000000000001,
+                "assumption": 0.0,
+                "nfr": 0.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.76,
+              "probabilities": {
+                "could": 0.01,
+                "must": 0.8099999999999999,
+                "wont": 0.01,
+                "should": 0.17
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.3,
+              "probabilities": {
+                "mid": 0.53,
+                "low": 0.39,
+                "high": 0.08
+              }
+            }
+          },
+          "latency": 0.7130081653594971,
+          "input_tokens": 1509,
+          "output_tokens": 510,
+          "cost": 6.3378e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "yellow",
+          "reasons": [
+            "质量均分 1.90 < 2.0",
+            "self_contained=0.30 < 0.5",
+            "acceptance_quantifiable=0.29 < 0.6",
+            "non_redundant=0.56 < 0.6",
+            "质量均分 1.90 < 2.2",
+            "共 9 个维度不确定(self_contained, terminology_defined, acceptance_quantifiable, implementation_free, correct, traceable, non_redundant, dependencies_declared, conforms_template)，需人工复核",
+            "clarity confidence=0.57 偏低",
+            "readability confidence=0.51 偏低",
+            "atomicity confidence=0.48 偏低"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 1.75,
+              "confidence": 0.57,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.52,
+              "confidence": 0.51,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.38,
+              "confidence": 0.48,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.94,
+              "confidence": 0.61,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.3
+            },
+            "terminology_defined": {
+              "noul": 0.3
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.29
+            },
+            "implementation_free": {
+              "noul": 0.53
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.49,
+              "probabilities": {
+                "none": 0.01,
+                "acceptance": 0.58,
+                "dependency": 0.01,
+                "boundary": 0.26,
+                "prerequisite": 0.01,
+                "terminology": 0.13
+              }
+            },
+            "correct": {
+              "noul": 0.68
+            },
+            "feasible": {
+              "noul": 0.86
+            },
+            "necessary": {
+              "noul": 0.77
+            },
+            "traceable": {
+              "noul": 0.47
+            },
+            "fidelity": {
+              "noul": 0.89
+            },
+            "consistent_internal": {
+              "noul": 0.78
+            },
+            "contradicts_siblings": {
+              "noul": 0.21
+            },
+            "non_redundant": {
+              "noul": 0.56
+            },
+            "dependencies_declared": {
+              "noul": 0.47
+            },
+            "conforms_template": {
+              "noul": 0.48
+            },
+            "req_type": {
+              "choice": "constraint",
+              "confidence": 0.92,
+              "probabilities": {
+                "constraint": 0.94,
+                "nfr": 0.0,
+                "feature": 0.06,
+                "assumption": 0.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.75,
+              "probabilities": {
+                "should": 0.17,
+                "must": 0.81,
+                "could": 0.01,
+                "wont": 0.01
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.36,
+              "probabilities": {
+                "low": 0.34,
+                "high": 0.09,
+                "mid": 0.57
+              }
+            }
+          },
+          "latency": 0.5773100852966309,
+          "input_tokens": 1509,
+          "output_tokens": 510,
+          "cost": 6.3378e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "yellow"
+    },
+    {
+      "id": "r09",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "yellow",
+          "reasons": [
+            "质量均分 1.38 < 2.0",
+            "self_contained=0.30 < 0.5",
+            "implementation_free=0.84 > 0.6（方案混入，需人工核对）",
+            "acceptance_quantifiable=0.35 < 0.6",
+            "质量均分 1.38 < 2.2",
+            "terminology_defined=0.20 偏低，需人工核对",
+            "implementation_free=0.84 偏高风险，需人工核对",
+            "共 6 个维度不确定(self_contained, acceptance_quantifiable, traceable, non_redundant, dependencies_declared, conforms_template)，需人工复核",
+            "clarity confidence=0.51 偏低"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.42,
+              "confidence": 0.51,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 0.67,
+              "confidence": 0.69,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 1.14,
+              "confidence": 0.83,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.29,
+              "confidence": 0.65,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.3
+            },
+            "terminology_defined": {
+              "noul": 0.2
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.35
+            },
+            "implementation_free": {
+              "noul": 0.84
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.55,
+              "probabilities": {
+                "boundary": 0.31,
+                "acceptance": 0.64,
+                "dependency": 0.02,
+                "none": 0.0,
+                "prerequisite": 0.03,
+                "terminology": 0.0
+              }
+            },
+            "correct": {
+              "noul": 0.76
+            },
+            "feasible": {
+              "noul": 0.86
+            },
+            "necessary": {
+              "noul": 0.79
+            },
+            "traceable": {
+              "noul": 0.42
+            },
+            "fidelity": {
+              "noul": 0.88
+            },
+            "consistent_internal": {
+              "noul": 0.81
+            },
+            "contradicts_siblings": {
+              "noul": 0.17
+            },
+            "non_redundant": {
+              "noul": 0.66
+            },
+            "dependencies_declared": {
+              "noul": 0.46
+            },
+            "conforms_template": {
+              "noul": 0.49
+            },
+            "req_type": {
+              "choice": "constraint",
+              "confidence": 0.57,
+              "probabilities": {
+                "assumption": 0.0,
+                "feature": 0.08,
+                "constraint": 0.68,
+                "nfr": 0.24
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.33,
+              "probabilities": {
+                "must": 0.49,
+                "wont": 0.0,
+                "could": 0.02,
+                "should": 0.49
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.26,
+              "probabilities": {
+                "mid": 0.5,
+                "high": 0.49,
+                "low": 0.01
+              }
+            }
+          },
+          "latency": 0.6631159782409668,
+          "input_tokens": 1512,
+          "output_tokens": 510,
+          "cost": 6.350400000000001e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "yellow",
+          "reasons": [
+            "质量均分 1.35 < 2.0",
+            "self_contained=0.33 < 0.5",
+            "implementation_free=0.84 > 0.6（方案混入，需人工核对）",
+            "acceptance_quantifiable=0.38 < 0.6",
+            "质量均分 1.35 < 2.2",
+            "风险等级=high，需人工复核",
+            "terminology_defined=0.20 偏低，需人工核对",
+            "implementation_free=0.84 偏高风险，需人工核对",
+            "共 6 个维度不确定(self_contained, acceptance_quantifiable, traceable, non_redundant, dependencies_declared, conforms_template)，需人工复核",
+            "clarity confidence=0.52 偏低"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.39,
+              "confidence": 0.52,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 0.65,
+              "confidence": 0.67,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 1.12,
+              "confidence": 0.84,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.24,
+              "confidence": 0.67,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.33
+            },
+            "terminology_defined": {
+              "noul": 0.2
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.38
+            },
+            "implementation_free": {
+              "noul": 0.84
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.52,
+              "probabilities": {
+                "boundary": 0.35,
+                "terminology": 0.0,
+                "dependency": 0.03,
+                "prerequisite": 0.02,
+                "none": 0.01,
+                "acceptance": 0.59
+              }
+            },
+            "correct": {
+              "noul": 0.77
+            },
+            "feasible": {
+              "noul": 0.85
+            },
+            "necessary": {
+              "noul": 0.8
+            },
+            "traceable": {
+              "noul": 0.43
+            },
+            "fidelity": {
+              "noul": 0.88
+            },
+            "consistent_internal": {
+              "noul": 0.82
+            },
+            "contradicts_siblings": {
+              "noul": 0.18
+            },
+            "non_redundant": {
+              "noul": 0.67
+            },
+            "dependencies_declared": {
+              "noul": 0.5
+            },
+            "conforms_template": {
+              "noul": 0.5
+            },
+            "req_type": {
+              "choice": "constraint",
+              "confidence": 0.53,
+              "probabilities": {
+                "nfr": 0.25,
+                "constraint": 0.65,
+                "feature": 0.1,
+                "assumption": 0.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.33,
+              "probabilities": {
+                "must": 0.49,
+                "could": 0.02,
+                "should": 0.49,
+                "wont": 0.0
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.3,
+              "probabilities": {
+                "mid": 0.46,
+                "high": 0.53,
+                "low": 0.01
+              }
+            }
+          },
+          "latency": 0.7046730518341064,
+          "input_tokens": 1512,
+          "output_tokens": 510,
+          "cost": 6.350400000000001e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "yellow"
+    },
+    {
+      "id": "r10",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "red",
+          "reasons": [
+            "self_contained=0.25 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 1.53,
+              "confidence": 0.55,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.27,
+              "confidence": 0.0,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.29,
+              "confidence": 0.41,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.52,
+              "confidence": 0.57,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.25
+            },
+            "terminology_defined": {
+              "noul": 0.22
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.38
+            },
+            "implementation_free": {
+              "noul": 0.12
+            },
+            "missing_info": {
+              "choice": "boundary",
+              "confidence": 0.56,
+              "probabilities": {
+                "prerequisite": 0.02,
+                "dependency": 0.05,
+                "terminology": 0.07,
+                "boundary": 0.63,
+                "none": 0.0,
+                "acceptance": 0.23
+              }
+            },
+            "correct": {
+              "noul": 0.69
+            },
+            "feasible": {
+              "noul": 0.79
+            },
+            "necessary": {
+              "noul": 0.77
+            },
+            "traceable": {
+              "noul": 0.47
+            },
+            "fidelity": {
+              "noul": 0.86
+            },
+            "consistent_internal": {
+              "noul": 0.8
+            },
+            "contradicts_siblings": {
+              "noul": 0.19
+            },
+            "non_redundant": {
+              "noul": 0.66
+            },
+            "dependencies_declared": {
+              "noul": 0.21
+            },
+            "conforms_template": {
+              "noul": 0.45
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.99,
+              "probabilities": {
+                "assumption": 0.0,
+                "nfr": 0.0,
+                "constraint": 0.0,
+                "feature": 1.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.36,
+              "probabilities": {
+                "must": 0.51,
+                "could": 0.09,
+                "wont": 0.03,
+                "should": 0.37
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.53,
+              "probabilities": {
+                "low": 0.0,
+                "mid": 0.31,
+                "high": 0.6900000000000001
+              }
+            }
+          },
+          "latency": 0.6698229312896729,
+          "input_tokens": 1491,
+          "output_tokens": 508,
+          "cost": 6.2622e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "red",
+          "reasons": [
+            "self_contained=0.26 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 1.51,
+              "confidence": 0.56,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.06,
+              "confidence": 0.02,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.42,
+              "confidence": 0.52,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.61,
+              "confidence": 0.6,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.26
+            },
+            "terminology_defined": {
+              "noul": 0.21
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.34
+            },
+            "implementation_free": {
+              "noul": 0.11
+            },
+            "missing_info": {
+              "choice": "boundary",
+              "confidence": 0.56,
+              "probabilities": {
+                "acceptance": 0.22,
+                "none": 0.0,
+                "boundary": 0.63,
+                "dependency": 0.07,
+                "prerequisite": 0.02,
+                "terminology": 0.06
+              }
+            },
+            "correct": {
+              "noul": 0.69
+            },
+            "feasible": {
+              "noul": 0.79
+            },
+            "necessary": {
+              "noul": 0.78
+            },
+            "traceable": {
+              "noul": 0.47
+            },
+            "fidelity": {
+              "noul": 0.88
+            },
+            "consistent_internal": {
+              "noul": 0.8
+            },
+            "contradicts_siblings": {
+              "noul": 0.18
+            },
+            "non_redundant": {
+              "noul": 0.67
+            },
+            "dependencies_declared": {
+              "noul": 0.22
+            },
+            "conforms_template": {
+              "noul": 0.43
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 1.0,
+              "probabilities": {
+                "nfr": 0.0,
+                "feature": 1.0,
+                "constraint": 0.0,
+                "assumption": 0.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.39,
+              "probabilities": {
+                "wont": 0.02,
+                "must": 0.54,
+                "could": 0.08,
+                "should": 0.36
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.49,
+              "probabilities": {
+                "mid": 0.33,
+                "high": 0.67,
+                "low": 0.0
+              }
+            }
+          },
+          "latency": 0.6576199531555176,
+          "input_tokens": 1491,
+          "output_tokens": 508,
+          "cost": 6.2622e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "red"
+    },
+    {
+      "id": "r11",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "red",
+          "reasons": [
+            "necessary=0.20 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.03,
+              "confidence": 0.71,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.15,
+              "confidence": 0.02,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 2.3,
+              "confidence": 0.0,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.74,
+              "confidence": 0.7,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.31
+            },
+            "terminology_defined": {
+              "noul": 0.13
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.51
+            },
+            "implementation_free": {
+              "noul": 0.53
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.82,
+              "probabilities": {
+                "boundary": 0.11,
+                "acceptance": 0.85,
+                "dependency": 0.01,
+                "none": 0.0,
+                "prerequisite": 0.02,
+                "terminology": 0.01
+              }
+            },
+            "correct": {
+              "noul": 0.44
+            },
+            "feasible": {
+              "noul": 0.78
+            },
+            "necessary": {
+              "noul": 0.2
+            },
+            "traceable": {
+              "noul": 0.62
+            },
+            "fidelity": {
+              "noul": 0.85
+            },
+            "consistent_internal": {
+              "noul": 0.67
+            },
+            "contradicts_siblings": {
+              "noul": 0.15
+            },
+            "non_redundant": {
+              "noul": 0.74
+            },
+            "dependencies_declared": {
+              "noul": 0.15
+            },
+            "conforms_template": {
+              "noul": 0.41
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.99,
+              "probabilities": {
+                "constraint": 0.0,
+                "nfr": 0.0,
+                "assumption": 0.0,
+                "feature": 1.0
+              }
+            },
+            "priority": {
+              "choice": "should",
+              "confidence": 0.2,
+              "probabilities": {
+                "wont": 0.28,
+                "should": 0.41000000000000003,
+                "must": 0.0,
+                "could": 0.31
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.47,
+              "probabilities": {
+                "high": 0.04,
+                "low": 0.32,
+                "mid": 0.64
+              }
+            }
+          },
+          "latency": 0.7218608856201172,
+          "input_tokens": 1516,
+          "output_tokens": 510,
+          "cost": 6.367200000000001e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "red",
+          "reasons": [
+            "necessary=0.22 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.04,
+              "confidence": 0.71,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.17,
+              "confidence": 0.16,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 2.19,
+              "confidence": 0.0,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.81,
+              "confidence": 0.72,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.32
+            },
+            "terminology_defined": {
+              "noul": 0.13
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.51
+            },
+            "implementation_free": {
+              "noul": 0.54
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.82,
+              "probabilities": {
+                "acceptance": 0.85,
+                "none": 0.0,
+                "boundary": 0.1,
+                "dependency": 0.02,
+                "prerequisite": 0.02,
+                "terminology": 0.01
+              }
+            },
+            "correct": {
+              "noul": 0.46
+            },
+            "feasible": {
+              "noul": 0.77
+            },
+            "necessary": {
+              "noul": 0.22
+            },
+            "traceable": {
+              "noul": 0.65
+            },
+            "fidelity": {
+              "noul": 0.84
+            },
+            "consistent_internal": {
+              "noul": 0.67
+            },
+            "contradicts_siblings": {
+              "noul": 0.18
+            },
+            "non_redundant": {
+              "noul": 0.73
+            },
+            "dependencies_declared": {
+              "noul": 0.17
+            },
+            "conforms_template": {
+              "noul": 0.39
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.99,
+              "probabilities": {
+                "nfr": 0.0,
+                "feature": 1.0,
+                "assumption": 0.0,
+                "constraint": 0.0
+              }
+            },
+            "priority": {
+              "choice": "should",
+              "confidence": 0.18,
+              "probabilities": {
+                "must": 0.0,
+                "wont": 0.28,
+                "could": 0.34,
+                "should": 0.38
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.48,
+              "probabilities": {
+                "mid": 0.65,
+                "high": 0.04,
+                "low": 0.31
+              }
+            }
+          },
+          "latency": 0.6756510734558105,
+          "input_tokens": 1516,
+          "output_tokens": 510,
+          "cost": 6.367200000000001e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "red"
+    },
+    {
+      "id": "r12",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "red",
+          "reasons": [
+            "self_contained=0.14 < 0.3",
+            "correct=0.06 < 0.3",
+            "feasible=0.05 < 0.3",
+            "necessary=0.09 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 0.92,
+              "confidence": 0.64,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.2,
+              "confidence": 0.73,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 1.92,
+              "confidence": 0.0,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.69,
+              "confidence": 0.59,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.14
+            },
+            "terminology_defined": {
+              "noul": 0.1
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.78
+            },
+            "implementation_free": {
+              "noul": 0.6
+            },
+            "missing_info": {
+              "choice": "dependency",
+              "confidence": 0.44,
+              "probabilities": {
+                "dependency": 0.54,
+                "none": 0.0,
+                "acceptance": 0.09,
+                "terminology": 0.06,
+                "prerequisite": 0.09,
+                "boundary": 0.22
+              }
+            },
+            "correct": {
+              "noul": 0.06
+            },
+            "feasible": {
+              "noul": 0.05
+            },
+            "necessary": {
+              "noul": 0.09
+            },
+            "traceable": {
+              "noul": 0.2
+            },
+            "fidelity": {
+              "noul": 0.51
+            },
+            "consistent_internal": {
+              "noul": 0.3
+            },
+            "contradicts_siblings": {
+              "noul": 0.68
+            },
+            "non_redundant": {
+              "noul": 0.73
+            },
+            "dependencies_declared": {
+              "noul": 0.27
+            },
+            "conforms_template": {
+              "noul": 0.29
+            },
+            "req_type": {
+              "choice": "nfr",
+              "confidence": 0.63,
+              "probabilities": {
+                "nfr": 0.72,
+                "feature": 0.19,
+                "constraint": 0.08,
+                "assumption": 0.01
+              }
+            },
+            "priority": {
+              "choice": "wont",
+              "confidence": 0.65,
+              "probabilities": {
+                "could": 0.01,
+                "wont": 0.74,
+                "must": 0.23,
+                "should": 0.02
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.99,
+              "probabilities": {
+                "mid": 0.0,
+                "low": 0.0,
+                "high": 1.0
+              }
+            }
+          },
+          "latency": 0.6486058235168457,
+          "input_tokens": 1534,
+          "output_tokens": 510,
+          "cost": 6.4428e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "red",
+          "reasons": [
+            "self_contained=0.16 < 0.3",
+            "correct=0.06 < 0.3",
+            "feasible=0.05 < 0.3",
+            "necessary=0.09 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 0.99,
+              "confidence": 0.63,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.24,
+              "confidence": 0.71,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 1.97,
+              "confidence": 0.0,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.75,
+              "confidence": 0.61,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.16
+            },
+            "terminology_defined": {
+              "noul": 0.11
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.8
+            },
+            "implementation_free": {
+              "noul": 0.63
+            },
+            "missing_info": {
+              "choice": "dependency",
+              "confidence": 0.45,
+              "probabilities": {
+                "acceptance": 0.07,
+                "none": 0.0,
+                "dependency": 0.54,
+                "prerequisite": 0.09,
+                "terminology": 0.06,
+                "boundary": 0.24
+              }
+            },
+            "correct": {
+              "noul": 0.06
+            },
+            "feasible": {
+              "noul": 0.05
+            },
+            "necessary": {
+              "noul": 0.09
+            },
+            "traceable": {
+              "noul": 0.22
+            },
+            "fidelity": {
+              "noul": 0.55
+            },
+            "consistent_internal": {
+              "noul": 0.33
+            },
+            "contradicts_siblings": {
+              "noul": 0.65
+            },
+            "non_redundant": {
+              "noul": 0.7
+            },
+            "dependencies_declared": {
+              "noul": 0.27
+            },
+            "conforms_template": {
+              "noul": 0.28
+            },
+            "req_type": {
+              "choice": "nfr",
+              "confidence": 0.61,
+              "probabilities": {
+                "assumption": 0.01,
+                "feature": 0.2,
+                "nfr": 0.7,
+                "constraint": 0.09
+              }
+            },
+            "priority": {
+              "choice": "wont",
+              "confidence": 0.6,
+              "probabilities": {
+                "should": 0.02,
+                "could": 0.01,
+                "must": 0.27,
+                "wont": 0.7
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.99,
+              "probabilities": {
+                "high": 0.99,
+                "low": 0.01,
+                "mid": 0.0
+              }
+            }
+          },
+          "latency": 0.7176179885864258,
+          "input_tokens": 1534,
+          "output_tokens": 510,
+          "cost": 6.4428e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "red"
+    },
+    {
+      "id": "r13",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "red",
+          "reasons": [
+            "correct=0.26 < 0.3",
+            "necessary=0.13 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 1.66,
+              "confidence": 0.65,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.45,
+              "confidence": 0.22,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 2.94,
+              "confidence": 0.12,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.66,
+              "confidence": 0.62,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.32
+            },
+            "terminology_defined": {
+              "noul": 0.11
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.25
+            },
+            "implementation_free": {
+              "noul": 0.53
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.89,
+              "probabilities": {
+                "dependency": 0.02,
+                "acceptance": 0.91,
+                "terminology": 0.01,
+                "boundary": 0.04,
+                "none": 0.01,
+                "prerequisite": 0.01
+              }
+            },
+            "correct": {
+              "noul": 0.26
+            },
+            "feasible": {
+              "noul": 0.69
+            },
+            "necessary": {
+              "noul": 0.13
+            },
+            "traceable": {
+              "noul": 0.45
+            },
+            "fidelity": {
+              "noul": 0.66
+            },
+            "consistent_internal": {
+              "noul": 0.57
+            },
+            "contradicts_siblings": {
+              "noul": 0.32
+            },
+            "non_redundant": {
+              "noul": 0.76
+            },
+            "dependencies_declared": {
+              "noul": 0.15
+            },
+            "conforms_template": {
+              "noul": 0.34
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.94,
+              "probabilities": {
+                "assumption": 0.0,
+                "nfr": 0.05,
+                "constraint": 0.0,
+                "feature": 0.95
+              }
+            },
+            "priority": {
+              "choice": "wont",
+              "confidence": 0.31,
+              "probabilities": {
+                "must": 0.0,
+                "should": 0.04,
+                "wont": 0.49,
+                "could": 0.47
+              }
+            },
+            "risk": {
+              "choice": "low",
+              "confidence": 0.67,
+              "probabilities": {
+                "low": 0.78,
+                "mid": 0.2,
+                "high": 0.02
+              }
+            }
+          },
+          "latency": 0.6154251098632812,
+          "input_tokens": 1516,
+          "output_tokens": 511,
+          "cost": 6.367200000000001e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "red",
+          "reasons": [
+            "necessary=0.12 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 1.62,
+              "confidence": 0.6,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.47,
+              "confidence": 0.19,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 2.89,
+              "confidence": 0.08,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.68,
+              "confidence": 0.62,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.33
+            },
+            "terminology_defined": {
+              "noul": 0.11
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.24
+            },
+            "implementation_free": {
+              "noul": 0.52
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.89,
+              "probabilities": {
+                "acceptance": 0.9,
+                "dependency": 0.03,
+                "terminology": 0.01,
+                "none": 0.01,
+                "prerequisite": 0.01,
+                "boundary": 0.04
+              }
+            },
+            "correct": {
+              "noul": 0.31
+            },
+            "feasible": {
+              "noul": 0.66
+            },
+            "necessary": {
+              "noul": 0.12
+            },
+            "traceable": {
+              "noul": 0.46
+            },
+            "fidelity": {
+              "noul": 0.67
+            },
+            "consistent_internal": {
+              "noul": 0.59
+            },
+            "contradicts_siblings": {
+              "noul": 0.31
+            },
+            "non_redundant": {
+              "noul": 0.76
+            },
+            "dependencies_declared": {
+              "noul": 0.16
+            },
+            "conforms_template": {
+              "noul": 0.32
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.95,
+              "probabilities": {
+                "constraint": 0.0,
+                "assumption": 0.0,
+                "nfr": 0.03,
+                "feature": 0.97
+              }
+            },
+            "priority": {
+              "choice": "wont",
+              "confidence": 0.35,
+              "probabilities": {
+                "must": 0.0,
+                "wont": 0.52,
+                "could": 0.43,
+                "should": 0.05
+              }
+            },
+            "risk": {
+              "choice": "low",
+              "confidence": 0.7,
+              "probabilities": {
+                "low": 0.8,
+                "mid": 0.18,
+                "high": 0.02
+              }
+            }
+          },
+          "latency": 0.693324089050293,
+          "input_tokens": 1516,
+          "output_tokens": 511,
+          "cost": 6.367200000000001e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "red"
+    },
+    {
+      "id": "r14",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "red",
+          "reasons": [
+            "correct=0.16 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.02,
+              "confidence": 0.13,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.66,
+              "confidence": 0.38,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.34,
+              "confidence": 0.45,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.22,
+              "confidence": 0.64,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.35
+            },
+            "terminology_defined": {
+              "noul": 0.24
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.48
+            },
+            "implementation_free": {
+              "noul": 0.23
+            },
+            "missing_info": {
+              "choice": "boundary",
+              "confidence": 0.65,
+              "probabilities": {
+                "none": 0.0,
+                "terminology": 0.0,
+                "dependency": 0.01,
+                "prerequisite": 0.05,
+                "acceptance": 0.23,
+                "boundary": 0.71
+              }
+            },
+            "correct": {
+              "noul": 0.16
+            },
+            "feasible": {
+              "noul": 0.71
+            },
+            "necessary": {
+              "noul": 0.47
+            },
+            "traceable": {
+              "noul": 0.31
+            },
+            "fidelity": {
+              "noul": 0.87
+            },
+            "consistent_internal": {
+              "noul": 0.69
+            },
+            "contradicts_siblings": {
+              "noul": 0.49
+            },
+            "non_redundant": {
+              "noul": 0.64
+            },
+            "dependencies_declared": {
+              "noul": 0.26
+            },
+            "conforms_template": {
+              "noul": 0.44
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.92,
+              "probabilities": {
+                "assumption": 0.0,
+                "constraint": 0.05,
+                "feature": 0.9299999999999999,
+                "nfr": 0.02
+              }
+            },
+            "priority": {
+              "choice": "wont",
+              "confidence": 0.41,
+              "probabilities": {
+                "must": 0.21,
+                "should": 0.14,
+                "could": 0.09,
+                "wont": 0.56
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.99,
+              "probabilities": {
+                "mid": 0.01,
+                "low": 0.0,
+                "high": 0.99
+              }
+            }
+          },
+          "latency": 0.667874813079834,
+          "input_tokens": 1513,
+          "output_tokens": 509,
+          "cost": 6.3546e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "red",
+          "reasons": [
+            "correct=0.17 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.0,
+              "confidence": 0.15,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.67,
+              "confidence": 0.35,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.34,
+              "confidence": 0.45,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.23,
+              "confidence": 0.65,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.37
+            },
+            "terminology_defined": {
+              "noul": 0.24
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.49
+            },
+            "implementation_free": {
+              "noul": 0.22
+            },
+            "missing_info": {
+              "choice": "boundary",
+              "confidence": 0.67,
+              "probabilities": {
+                "acceptance": 0.23,
+                "prerequisite": 0.03,
+                "terminology": 0.0,
+                "boundary": 0.73,
+                "none": 0.0,
+                "dependency": 0.01
+              }
+            },
+            "correct": {
+              "noul": 0.17
+            },
+            "feasible": {
+              "noul": 0.7
+            },
+            "necessary": {
+              "noul": 0.44
+            },
+            "traceable": {
+              "noul": 0.3
+            },
+            "fidelity": {
+              "noul": 0.86
+            },
+            "consistent_internal": {
+              "noul": 0.66
+            },
+            "contradicts_siblings": {
+              "noul": 0.49
+            },
+            "non_redundant": {
+              "noul": 0.65
+            },
+            "dependencies_declared": {
+              "noul": 0.25
+            },
+            "conforms_template": {
+              "noul": 0.44
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.91,
+              "probabilities": {
+                "assumption": 0.0,
+                "nfr": 0.02,
+                "constraint": 0.05,
+                "feature": 0.93
+              }
+            },
+            "priority": {
+              "choice": "wont",
+              "confidence": 0.51,
+              "probabilities": {
+                "must": 0.15,
+                "could": 0.1,
+                "wont": 0.63,
+                "should": 0.12
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.99,
+              "probabilities": {
+                "low": 0.0,
+                "mid": 0.01,
+                "high": 0.99
+              }
+            }
+          },
+          "latency": 0.7250320911407471,
+          "input_tokens": 1513,
+          "output_tokens": 509,
+          "cost": 6.3546e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "red"
+    },
+    {
+      "id": "r15",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "green",
+          "reasons": [],
+          "answers": {
+            "clarity": {
+              "score": 2.84,
+              "confidence": 0.66,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.88,
+              "confidence": 0.43,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.88,
+              "confidence": 0.9,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.71,
+              "confidence": 0.53,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.56
+            },
+            "terminology_defined": {
+              "noul": 0.28
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.63
+            },
+            "implementation_free": {
+              "noul": 0.15
+            },
+            "missing_info": {
+              "choice": "boundary",
+              "confidence": 0.45,
+              "probabilities": {
+                "acceptance": 0.43,
+                "terminology": 0.01,
+                "boundary": 0.54,
+                "prerequisite": 0.01,
+                "none": 0.01,
+                "dependency": 0.0
+              }
+            },
+            "correct": {
+              "noul": 0.92
+            },
+            "feasible": {
+              "noul": 0.91
+            },
+            "necessary": {
+              "noul": 0.88
+            },
+            "traceable": {
+              "noul": 0.59
+            },
+            "fidelity": {
+              "noul": 0.93
+            },
+            "consistent_internal": {
+              "noul": 0.89
+            },
+            "contradicts_siblings": {
+              "noul": 0.17
+            },
+            "non_redundant": {
+              "noul": 0.69
+            },
+            "dependencies_declared": {
+              "noul": 0.41
+            },
+            "conforms_template": {
+              "noul": 0.52
+            },
+            "req_type": {
+              "choice": "constraint",
+              "confidence": 0.65,
+              "probabilities": {
+                "feature": 0.26,
+                "nfr": 0.0,
+                "assumption": 0.0,
+                "constraint": 0.74
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.97,
+              "probabilities": {
+                "wont": 0.0,
+                "should": 0.02,
+                "must": 0.98,
+                "could": 0.0
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.38,
+              "probabilities": {
+                "mid": 0.59,
+                "high": 0.29,
+                "low": 0.12
+              }
+            }
+          },
+          "latency": 0.837622880935669,
+          "input_tokens": 1498,
+          "output_tokens": 508,
+          "cost": 6.2916e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "green",
+          "reasons": [],
+          "answers": {
+            "clarity": {
+              "score": 2.77,
+              "confidence": 0.65,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.9,
+              "confidence": 0.4,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.85,
+              "confidence": 0.88,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.73,
+              "confidence": 0.53,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.57
+            },
+            "terminology_defined": {
+              "noul": 0.29
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.63
+            },
+            "implementation_free": {
+              "noul": 0.15
+            },
+            "missing_info": {
+              "choice": "boundary",
+              "confidence": 0.45,
+              "probabilities": {
+                "none": 0.0,
+                "prerequisite": 0.01,
+                "terminology": 0.01,
+                "dependency": 0.0,
+                "acceptance": 0.44,
+                "boundary": 0.54
+              }
+            },
+            "correct": {
+              "noul": 0.91
+            },
+            "feasible": {
+              "noul": 0.92
+            },
+            "necessary": {
+              "noul": 0.87
+            },
+            "traceable": {
+              "noul": 0.58
+            },
+            "fidelity": {
+              "noul": 0.93
+            },
+            "consistent_internal": {
+              "noul": 0.88
+            },
+            "contradicts_siblings": {
+              "noul": 0.17
+            },
+            "non_redundant": {
+              "noul": 0.69
+            },
+            "dependencies_declared": {
+              "noul": 0.41
+            },
+            "conforms_template": {
+              "noul": 0.53
+            },
+            "req_type": {
+              "choice": "constraint",
+              "confidence": 0.51,
+              "probabilities": {
+                "constraint": 0.64,
+                "assumption": 0.0,
+                "feature": 0.36,
+                "nfr": 0.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.97,
+              "probabilities": {
+                "should": 0.02,
+                "must": 0.98,
+                "could": 0.0,
+                "wont": 0.0
+              }
+            },
+            "risk": {
+              "choice": "mid",
+              "confidence": 0.34,
+              "probabilities": {
+                "high": 0.34,
+                "low": 0.1,
+                "mid": 0.56
+              }
+            }
+          },
+          "latency": 1.2765839099884033,
+          "input_tokens": 1498,
+          "output_tokens": 508,
+          "cost": 6.2916e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "green"
+    },
+    {
+      "id": "r16",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "red",
+          "reasons": [
+            "self_contained=0.22 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 1.95,
+              "confidence": 0.67,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.18,
+              "confidence": 0.62,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 2.67,
+              "confidence": 0.31,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.32,
+              "confidence": 0.63,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.22
+            },
+            "terminology_defined": {
+              "noul": 0.27
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.5
+            },
+            "implementation_free": {
+              "noul": 0.16
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.59,
+              "probabilities": {
+                "dependency": 0.01,
+                "boundary": 0.32,
+                "none": 0.0,
+                "terminology": 0.0,
+                "prerequisite": 0.01,
+                "acceptance": 0.66
+              }
+            },
+            "correct": {
+              "noul": 0.89
+            },
+            "feasible": {
+              "noul": 0.9
+            },
+            "necessary": {
+              "noul": 0.91
+            },
+            "traceable": {
+              "noul": 0.52
+            },
+            "fidelity": {
+              "noul": 0.91
+            },
+            "consistent_internal": {
+              "noul": 0.82
+            },
+            "contradicts_siblings": {
+              "noul": 0.14
+            },
+            "non_redundant": {
+              "noul": 0.67
+            },
+            "dependencies_declared": {
+              "noul": 0.47
+            },
+            "conforms_template": {
+              "noul": 0.48
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 1.0,
+              "probabilities": {
+                "feature": 1.0,
+                "assumption": 0.0,
+                "nfr": 0.0,
+                "constraint": 0.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.93,
+              "probabilities": {
+                "should": 0.05,
+                "wont": 0.0,
+                "must": 0.95,
+                "could": 0.0
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.86,
+              "probabilities": {
+                "mid": 0.09,
+                "high": 0.91,
+                "low": 0.0
+              }
+            }
+          },
+          "latency": 0.7125380039215088,
+          "input_tokens": 1493,
+          "output_tokens": 510,
+          "cost": 6.2706e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "red",
+          "reasons": [
+            "self_contained=0.21 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 1.98,
+              "confidence": 0.67,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 1.24,
+              "confidence": 0.6,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 2.58,
+              "confidence": 0.36,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 1.35,
+              "confidence": 0.62,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.21
+            },
+            "terminology_defined": {
+              "noul": 0.25
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.52
+            },
+            "implementation_free": {
+              "noul": 0.15
+            },
+            "missing_info": {
+              "choice": "acceptance",
+              "confidence": 0.59,
+              "probabilities": {
+                "prerequisite": 0.01,
+                "none": 0.0,
+                "acceptance": 0.66,
+                "dependency": 0.01,
+                "terminology": 0.0,
+                "boundary": 0.32
+              }
+            },
+            "correct": {
+              "noul": 0.89
+            },
+            "feasible": {
+              "noul": 0.89
+            },
+            "necessary": {
+              "noul": 0.91
+            },
+            "traceable": {
+              "noul": 0.52
+            },
+            "fidelity": {
+              "noul": 0.91
+            },
+            "consistent_internal": {
+              "noul": 0.83
+            },
+            "contradicts_siblings": {
+              "noul": 0.15
+            },
+            "non_redundant": {
+              "noul": 0.68
+            },
+            "dependencies_declared": {
+              "noul": 0.44
+            },
+            "conforms_template": {
+              "noul": 0.46
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 1.0,
+              "probabilities": {
+                "nfr": 0.0,
+                "constraint": 0.0,
+                "feature": 1.0,
+                "assumption": 0.0
+              }
+            },
+            "priority": {
+              "choice": "must",
+              "confidence": 0.94,
+              "probabilities": {
+                "could": 0.0,
+                "wont": 0.0,
+                "must": 0.96,
+                "should": 0.04
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 0.83,
+              "probabilities": {
+                "mid": 0.11,
+                "low": 0.0,
+                "high": 0.89
+              }
+            }
+          },
+          "latency": 0.715972900390625,
+          "input_tokens": 1493,
+          "output_tokens": 510,
+          "cost": 6.2706e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "red"
+    },
+    {
+      "id": "r17",
+      "expected": "block",
+      "runs": [
+        {
+          "verdict": "red",
+          "reasons": [
+            "self_contained=0.26 < 0.3",
+            "correct=0.05 < 0.3",
+            "necessary=0.12 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.66,
+              "confidence": 0.26,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.07,
+              "confidence": 0.08,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.39,
+              "confidence": 0.49,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.88,
+              "confidence": 0.66,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.26
+            },
+            "terminology_defined": {
+              "noul": 0.16
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.41
+            },
+            "implementation_free": {
+              "noul": 0.75
+            },
+            "missing_info": {
+              "choice": "boundary",
+              "confidence": 0.35,
+              "probabilities": {
+                "acceptance": 0.36,
+                "dependency": 0.03,
+                "boundary": 0.46,
+                "prerequisite": 0.13,
+                "terminology": 0.01,
+                "none": 0.01
+              }
+            },
+            "correct": {
+              "noul": 0.05
+            },
+            "feasible": {
+              "noul": 0.48
+            },
+            "necessary": {
+              "noul": 0.12
+            },
+            "traceable": {
+              "noul": 0.23
+            },
+            "fidelity": {
+              "noul": 0.81
+            },
+            "consistent_internal": {
+              "noul": 0.6
+            },
+            "contradicts_siblings": {
+              "noul": 0.44
+            },
+            "non_redundant": {
+              "noul": 0.64
+            },
+            "dependencies_declared": {
+              "noul": 0.17
+            },
+            "conforms_template": {
+              "noul": 0.28
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.51,
+              "probabilities": {
+                "constraint": 0.11,
+                "feature": 0.63,
+                "nfr": 0.24,
+                "assumption": 0.02
+              }
+            },
+            "priority": {
+              "choice": "wont",
+              "confidence": 0.86,
+              "probabilities": {
+                "could": 0.02,
+                "must": 0.06,
+                "wont": 0.89,
+                "should": 0.03
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 1.0,
+              "probabilities": {
+                "high": 1.0,
+                "low": 0.0,
+                "mid": 0.0
+              }
+            }
+          },
+          "latency": 0.6143937110900879,
+          "input_tokens": 1517,
+          "output_tokens": 509,
+          "cost": 6.3714e-05,
+          "backend": "jev"
+        },
+        {
+          "verdict": "red",
+          "reasons": [
+            "self_contained=0.27 < 0.3",
+            "correct=0.06 < 0.3",
+            "necessary=0.13 < 0.3"
+          ],
+          "answers": {
+            "clarity": {
+              "score": 2.53,
+              "confidence": 0.24,
+              "legend": {
+                "0": "含混、自相矛盾或无法读懂",
+                "1": "存在明显歧义需解释",
+                "2": "基本清楚但措辞模糊",
+                "3": "清楚，仅有小疑问",
+                "4": "清晰、单义、无歧义"
+              }
+            },
+            "readability": {
+              "score": 2.05,
+              "confidence": 0.1,
+              "legend": {
+                "0": "满口行话、抽象难懂",
+                "1": "偏专业、需背景知识",
+                "2": "基本可懂但需推敲",
+                "3": "较直白",
+                "4": "普通读者可直接理解"
+              }
+            },
+            "atomicity": {
+              "score": 3.44,
+              "confidence": 0.53,
+              "legend": {
+                "0": "混杂多条不相关需求",
+                "1": "含两三条相关点",
+                "2": "主体单一带次要信息",
+                "3": "基本单一",
+                "4": "完全单一聚焦"
+              }
+            },
+            "completeness": {
+              "score": 0.91,
+              "confidence": 0.66,
+              "legend": {
+                "0": "关键信息大量缺失",
+                "1": "缺多个要素",
+                "2": "缺少量要素",
+                "3": "基本完整",
+                "4": "完整自足、含边界与异常"
+              }
+            },
+            "self_contained": {
+              "noul": 0.27
+            },
+            "terminology_defined": {
+              "noul": 0.16
+            },
+            "acceptance_quantifiable": {
+              "noul": 0.4
+            },
+            "implementation_free": {
+              "noul": 0.73
+            },
+            "missing_info": {
+              "choice": "boundary",
+              "confidence": 0.34,
+              "probabilities": {
+                "acceptance": 0.38,
+                "boundary": 0.44,
+                "terminology": 0.01,
+                "dependency": 0.03,
+                "none": 0.01,
+                "prerequisite": 0.13
+              }
+            },
+            "correct": {
+              "noul": 0.06
+            },
+            "feasible": {
+              "noul": 0.48
+            },
+            "necessary": {
+              "noul": 0.13
+            },
+            "traceable": {
+              "noul": 0.24
+            },
+            "fidelity": {
+              "noul": 0.81
+            },
+            "consistent_internal": {
+              "noul": 0.59
+            },
+            "contradicts_siblings": {
+              "noul": 0.43
+            },
+            "non_redundant": {
+              "noul": 0.63
+            },
+            "dependencies_declared": {
+              "noul": 0.17
+            },
+            "conforms_template": {
+              "noul": 0.29
+            },
+            "req_type": {
+              "choice": "feature",
+              "confidence": 0.47,
+              "probabilities": {
+                "assumption": 0.02,
+                "feature": 0.61,
+                "constraint": 0.1,
+                "nfr": 0.27
+              }
+            },
+            "priority": {
+              "choice": "wont",
+              "confidence": 0.88,
+              "probabilities": {
+                "could": 0.01,
+                "wont": 0.91,
+                "should": 0.03,
+                "must": 0.05
+              }
+            },
+            "risk": {
+              "choice": "high",
+              "confidence": 1.0,
+              "probabilities": {
+                "mid": 0.0,
+                "high": 1.0,
+                "low": 0.0
+              }
+            }
+          },
+          "latency": 0.661351203918457,
+          "input_tokens": 1517,
+          "output_tokens": 509,
+          "cost": 6.3714e-05,
+          "backend": "jev"
+        }
+      ],
+      "consistent": true,
+      "majority_verdict": "red"
+    }
+  ]
+}

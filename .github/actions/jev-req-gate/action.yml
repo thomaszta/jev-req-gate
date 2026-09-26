@@ -1,0 +1,81 @@
+name: "Jev Requirement Gate"
+description: >-
+  Gate AI-generated requirements with Jev (TypeSafe System One). Routes each
+  requirement to PASS / REVIEW / BLOCK via calibrated thresholds, and fails the
+  job when any item is blocked. Works on requirements as .json / .csv / .txt.
+branding:
+  icon: "shield"
+  color: "green"
+
+inputs:
+  requirements-file:
+    description: >-
+      Path (relative to repo root) to the requirements file to gate
+      (.json array / .csv / .txt). Required.
+    required: true
+  typesafe-api-key:
+    description: "TypeSafe API key (store it as a repository secret). Required for real gating."
+    required: true
+  project-context:
+    description: "Project background / constraints / stack — reality-layer reference."
+    required: false
+    default: ""
+  document-file:
+    description: "Full requirement document — enables cross-item contradiction detection."
+    required: false
+    default: ""
+  thresholds-file:
+    description: "Path to a JSON file overriding default thresholds."
+    required: false
+    default: ""
+  exit-on-block:
+    description: "Fail the job when any requirement is blocked (true) or only report (false)."
+    required: false
+    default: "true"
+  python-version:
+    description: "Python version to run the gate under."
+    required: false
+    default: "3.11"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install jev-req-gate
+      shell: bash
+      run: pip install jev-req-gate
+
+    - name: Run the gate
+      shell: bash
+      id: gate
+      env:
+        TYPESAFE_API_KEY: ${{ inputs.typesafe-api-key }}
+        EXIT_ON_BLOCK: ${{ inputs.exit-on-block }}
+      run: |
+        set -u
+        ARGS="--file ${{ inputs.requirements-file }}"
+        [ -n "${{ inputs.project-context }}" ] && ARGS="$ARGS --project-context ${{ inputs.project-context }}"
+        [ -n "${{ inputs.document-file }}" ] && ARGS="$ARGS --document-file ${{ inputs.document-file }}"
+        [ -n "${{ inputs.thresholds-file }}" ] && ARGS="$ARGS --thresholds-file ${{ inputs.thresholds-file }}"
+        ARGS="$ARGS --out gate-report.csv"
+        echo "Running: jev-req-gate $ARGS"
+        jev-req-gate $ARGS
+        code=$?
+        echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+        echo "Blocked exits 1. Failing only if exit-on-block=true."
+        if [ "$code" != "0" ] && [ "$EXIT_ON_BLOCK" = "true" ]; then
+          echo "::error::jev-req-gate found blocked requirement(s). See gate-report.csv."
+          exit "$code"
+        fi
+        exit 0
+
+    - name: Upload gate report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: jev-req-gate-report
+        path: gate-report.csv
+        if-no-files-found: ignore

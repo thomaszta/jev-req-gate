@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>jev-req-gate · AI 写的需求，谁来把关？（竖版推文卡）</title>
+</head>
+<body style="margin:0;">
+<div style="width:1200px;height:1500px;box-sizing:border-box;background:linear-gradient(150deg,#0e1a2b 0%,#16324f 55%,#1d4a63 100%);color:#f2f6fa;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;padding:52px 56px 42px;display:flex;flex-direction:column;position:relative;overflow:hidden;">
+  <style>
+    .tag{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:6px 16px;font-size:15px;letter-spacing:.5px;}
+    .hook{font-size:42px;font-weight:800;line-height:1.34;margin:28px 0 4px;letter-spacing:.5px;}
+    .hook .em{color:#ffb74d;}
+    .sub{font-size:19px;color:#c6d4e2;line-height:1.6;margin-top:10px;}
+    .sub b{color:#ffffff;}
+    .cmp{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;}
+    .cell{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:15px 16px;}
+    .cell .k{font-size:14px;color:#9fb3c6;margin-bottom:6px;}
+    .cell .v{font-size:30px;font-weight:800;line-height:1.12;}
+    .cell .v.good{color:#66d18b;}
+    .cell .v.bad{color:#ff7a6b;}
+    .cell .vs{font-size:14px;color:#8aa0b4;font-weight:600;margin-top:6px;line-height:1.35;}
+    .ideas{display:flex;flex-direction:column;gap:13px;}
+    .idea{display:flex;gap:13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:15px 17px;}
+    .idea .no{flex:0 0 29px;height:29px;border-radius:15px;background:#ffd28a;color:#0e1a2b;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+    .idea .bd b{color:#ffffff;font-size:16px;}
+    .idea .bd p{margin:4px 0 0;font-size:14.5px;color:#b8c7d6;line-height:1.5;}
+    .foot{margin-top:18px;font-size:14px;color:#8aa0b4;border-top:1px solid rgba(255,255,255,.14);padding-top:14px;display:flex;justify-content:space-between;align-items:center;gap:20px;}
+    .foot .open{color:#ffd28a;font-weight:700;letter-spacing:.5px;}
+  </style>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <span class="tag">jev-req-gate · 给 AI 写的需求把关</span>
+    <span style="font-size:14px;color:#9fb3c6;">开源 · MIT</span>
+  </div>
+
+  <div class="hook">AI 写的需求，看着都像真的。<br><span class="em">让 AI 自己把关？它错杀 60% 合格的需求。</span></div>
+  <div class="sub">很多团队现在用 AI 写需求——又快又全，但质量没人把关。普通大模型（LLM）是"写手"，让它当"裁判"会<b>错杀好需求、判断还摇摆</b>。<br>Jev 是一个<b>专门做判断的 AI 模型</b>：它不写东西，只给每条需求打分，并告诉你它有多确定。</div>
+
+  <svg width="100%" height="62" viewBox="0 0 1088 62" xmlns="http://www.w3.org/2000/svg" style="margin-top:22px;">
+    <text x="0" y="16" font-size="14" fill="#9fb3c6">一条需求 → Jev 判断 → 分成三堆：</text>
+    <rect x="268" y="24" width="260" height="30" rx="8" fill="rgba(102,209,139,.16)" stroke="#66d18b"/>
+    <text x="398" y="44" text-anchor="middle" font-size="14" fill="#8de0a9">绿 · 直接通过</text>
+    <rect x="540" y="24" width="268" height="30" rx="8" fill="rgba(255,210,138,.16)" stroke="#ffd28a"/>
+    <text x="674" y="44" text-anchor="middle" font-size="14" fill="#ffd28a">黄 · 拿不准，请人看一眼</text>
+    <rect x="820" y="24" width="268" height="30" rx="8" fill="rgba(255,122,107,.18)" stroke="#ff7a6b"/>
+    <text x="954" y="44" text-anchor="middle" font-size="14" fill="#ff9a8c">红 · 不合格，退回重写</text>
+  </svg>
+
+  <div style="font-size:15px;color:#c6d4e2;margin:14px 0 9px;">同一批需求、同样的问法，<b style="color:#ffd28a;">Jev 与普通 LLM 实测对比</b>（17 条需求）：</div>
+  <div class="cmp">
+    <div class="cell"><div class="k">错杀合格需求</div><div class="v good">0 条</div><div class="vs">LLM 错杀 60% —— 错多了，团队就不信这个门禁了</div></div>
+    <div class="cell"><div class="k">结果稳定性</div><div class="v good">每次一致</div><div class="vs">LLM 同一需求测两次，结果偶尔会变，没法复核</div></div>
+    <div class="cell"><div class="k">成本（判 34 次）</div><div class="v good">$0.002</div><div class="vs">LLM：$0.02，贵约 9 倍</div></div>
+    <div class="cell"><div class="k">最慢一次耗时</div><div class="v good">0.84 秒</div><div class="vs">LLM：9.8 秒，会拖慢整个流程</div></div>
+  </div>
+
+  <div style="font-size:21px;font-weight:800;color:#ffffff;margin:32px 0 4px;">它怎么做到的：4 个可借鉴的做法</div>
+  <div style="font-size:14.5px;color:#9fb3c6;margin-bottom:13px;">做"让 AI 当裁判"这件事时，这些细节比想象中重要。</div>
+  <div class="ideas">
+    <div class="idea"><div class="no">1</div><div class="bd"><b>宁可少拦，不可错拦</b><p>判断维度再多，也只拿模型"最有把握的 6 项"当硬标准（是否可行、是否必要、是否前后矛盾等）；其余只作提醒、不打回。因为实测发现：要求太多，会把写得具体的合格需求误伤。</p></div></div>
+    <div class="idea"><div class="no">2</div><div class="bd"><b>没把握的，交给人类</b><p>模型概率不高不低（拿不准）的需求，绝不硬猜，转给人裁决。机器先筛掉约三分之二，人只集中看剩下拿不准的——这就是人机分工。</p></div></div>
+    <div class="idea"><div class="no">3</div><div class="bd"><b>判断结果缓存，反复试阈值不花钱</b><p>同一需求不会重复付费判断。团队可以先拿历史需求跑一遍、看误判率，再决定"多严才算打回"。</p></div></div>
+    <div class="idea"><div class="no">4</div><div class="bd"><b>把"没说出口的前提"写下来</b><p>AI 写的需求常偷偷依赖没写出来的背景知识（行业术语、假设、依赖）。用模板让团队显式写清楚，判断才不靠猜——这也是 AI 需求质量差的根因。</p></div></div>
+  </div>
+
+  <div class="foot">
+    <span>开源 <span class="open">jev-req-gate</span>：把需求文档一键分成 通过 / 待确认 / 退回 三堆，人只看待确认的。</span>
+    <span>对比数据可复现 · MIT</span>
+  </div>
+</div>
+</body>
+</html>

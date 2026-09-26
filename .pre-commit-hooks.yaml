@@ -1,0 +1,10 @@
+- id: jev-req-gate
+  name: jev-req-gate (Jev requirement quality gate)
+  description: >-
+    Gate AI-generated requirements with Jev (TypeSafe System One): routes each
+    item to PASS / REVIEW / BLOCK and fails the commit when any item is blocked.
+    Requires the package installed and TYPESAFE_API_KEY set.
+  entry: python hooks/jev_req_gate_hook.py
+  language: system
+  pass_filenames: true
+  always_run: false
