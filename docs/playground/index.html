@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>jev-req-gate · Playground</title>
+<style>
+  :root{--bg:#0f1117;--card:#171a23;--card2:#1d2130;--line:#2a2f42;--fg:#e6e9f2;--dim:#8b93a8;
+        --green:#3fb950;--yellow:#d29922;--red:#f85149;--blue:#4493f8;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--fg);font:15px/1.5 -apple-system,"PingFang SC","Segoe UI",Roboto,sans-serif;
+       min-height:100vh;padding:0 0 40px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  header{padding:28px 0 6px;border-bottom:1px solid var(--line);margin-bottom:20px}
+  .badge{display:inline-block;background:#1c212e;border:1px solid var(--line);color:var(--dim);
+         font-size:12px;border-radius:20px;padding:2px 10px;margin-bottom:10px}
+  h1{font-size:26px;font-weight:700;letter-spacing:-.3px}
+  h1 .gate{color:var(--blue)}
+  .sub{color:var(--dim);margin-top:4px;font-size:14px}
+  .pill{display:inline-block;font-size:12px;font-weight:600;border-radius:20px;padding:2px 10px;margin-left:6px}
+  .pill.dl{background:#1f6feb22;color:#58a6ff;border:1px solid #1f6feb55}
+  .pill.mk{background:#3fb95022;color:var(--green);border:1px solid #3fb95055}
+  .layout{display:grid;grid-template-columns:280px 1fr;gap:18px}
+  @media(max-width:760px){.layout{grid-template-columns:1fr}}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .panel h2{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px}
+  .scene{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid var(--line);
+         border-radius:10px;margin-bottom:8px;cursor:pointer;background:var(--card2);transition:.15s}
+  .scene:hover{border-color:#3a4160}
+  .scene.on{border-color:var(--blue);background:#0d2238}
+  .scene .dot{width:10px;height:10px;border-radius:50%;margin-top:5px;flex:none}
+  .scene .t{font-weight:600;font-size:14px}
+  .scene .d{color:var(--dim);font-size:12.5px;margin-top:2px}
+  .s1 .dot{background:var(--green)}.s2 .dot{background:var(--yellow)}
+  .s3 .dot{background:var(--red)}.s4 .dot{background:var(--red)}
+  .face{margin-bottom:16px}
+  .faceh{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+  .faceh b{font-size:13px}
+  .faceh .fc{color:var(--dim);font-size:11px}
+  .rows{display:flex;flex-direction:column;gap:4px}
+  .row{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:4px 8px;
+       border-radius:6px;background:#131722}
+  .row .k{color:#c7ccdd}.row .ty{color:var(--dim);font-size:10.5px;margin-left:6px}
+  .row .v{font-variant-numeric:tabular-nums;font-weight:600;padding:0 8px;border-radius:5px}
+  .row.hit{outline:1px solid currentColor;outline-offset:-1px}
+  .verd{display:flex;align-items:center;justify-content:space-between;background:var(--card2);
+        border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:4px}
+  .verd .big{font-size:22px;font-weight:800;letter-spacing:.5px}
+  .verd .big.PASS{color:var(--green)}.verd .big.REVIEW{color:var(--yellow)}.verd .big.BLOCK{color:var(--red)}
+  .verd .meta{color:var(--dim);font-size:12.5px;margin-top:4px}
+  .reasons{margin-top:10px}
+  .reasons .r{font-size:12.5px;padding:5px 10px;border-left:2px solid var(--line);margin-bottom:5px;color:#c7ccdd;
+              background:#131722;border-radius:0 6px 6px 0}
+  .note{margin-top:14px;color:var(--dim);font-size:12px;border-top:1px solid var(--line);padding-top:12px}
+  .note code{background:#22283a;padding:1px 6px;border-radius:4px;font-size:11.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="badge">jev-req-gate · open-source playground · no API key needed</div>
+    <h1>Quality <span class="gate">gate</span> for AI-generated requirements</h1>
+    <div class="sub">
+      Jev (TypeSafe System One) judges each requirement across
+      <span class="pill dl">5 MECE faces</span><span class="pill mk">22 atomic questions</span> — then routes to
+      <b style="color:var(--green)">PASS</b> / <b style="color:var(--yellow)">REVIEW</b> / <b style="color:var(--red)">BLOCK</b>.
+      Pick a scenario to see the calibrated routing logic in action.
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- left: scenarios -->
+    <div class="panel">
+      <h2>Scenario</h2>
+      <div id="scenes"></div>
+      <div class="note">This playground runs the <b>same decide() routing and calibrated thresholds</b> as the
+        real tool, with pre-baked answers — no API call. For live Jev output run
+        <code>jev-req-gate --file examples/document_demo.json --project-context "..."</code>.</div>
+    </div>
+
+    <!-- right: signals -->
+    <div>
+      <div class="panel" style="margin-bottom:16px">
+        <h2>22 atomic signals (Jev answers)</h2>
+        <div id="faces"></div>
+      </div>
+      <div class="verd">
+        <div>
+          <div class="big" id="verdict">—</div>
+          <div class="meta" id="meta"></div>
+        </div>
+        <div id="summary" style="text-align:right;font-size:12.5px;color:var(--dim)"></div>
+      </div>
+      <div class="reasons" id="reasons"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// 5 faces, key order mirrors src/jev_req_gate/profiles.py
+const FACES = [
+  ["Expression", "how it's worded",
+   [["clarity","score"],["readability","score"],["atomicity","score"]]],
+  ["Content", "what it says",
+   [["completeness","score"],["self_contained","noul"],["terminology_defined","noul"],
+    ["acceptance_quantifiable","noul"],["implementation_free","noul"],["missing_info","choice"]]],
+  ["Reality", "whether it holds",
+   [["correct","noul"],["feasible","noul"],["necessary","noul"],["traceable","noul"],["fidelity","noul"]]],
+  ["Relation", "vs. others",
+   [["consistent_internal","noul"],["contradicts_siblings","noul"],["non_redundant","noul"],["dependencies_declared","noul"]]],
+  ["Governance", "follows the rules",
+   [["conforms_template","noul"],["req_type","choice"],["priority","choice"],["risk","choice"]]],
+];
+const CORE = ["clarity","readability","atomicity","completeness"];
+const T = {block_noul_pos:.3, block_noul_neg:.7, review_score:2.2, block_score:1.0,
+           review_pos_weak:.5, review_neg_hi:.5, mid_low:.25, mid_high:.75, low_conf:.6};
+const BLOCK_POS = ["self_contained","correct","feasible","necessary"];
+
+// ---- scenarios: {name, desc, color, answers} ----
+function S(scoreVals, noulPos, noulNeg, choice, confOverrides){
+  const a={}; CORE.forEach(k=>a[k]={score:scoreVals[k], confidence:(confOverrides&&confOverrides[k])||.8});
+  Object.entries(noulPos).forEach(([k,v])=>a[k]={noul:v});
+  Object.entries(noulNeg).forEach(([k,v])=>a[k]={noul:v});
+  Object.entries(choice||{}).forEach(([k,v])=>a[k]={choice:v[0], confidence:v[1]});
+  return a;
+}
+const scenarios = [
+  {id:"s1", cls:"s1", name:"Sound requirement", color:"#3fb950", meta:"payment-gateway settlement — should pass",
+   answers:S({clarity:2.0,readability:2.4,atomicity:2.6,completeness:2.4},
+             {self_contained:.62,terminology_defined:.55,acceptance_quantifiable:.68,
+              correct:.78,feasible:.81,necessary:.85,traceable:.74,fidelity:.8,
+              consistent_internal:.86,non_redundant:.82,dependencies_declared:.66,conforms_template:.7},
+             {implementation_free:.3,contradicts_siblings:.08},
+             {missing_info:["none",.8],req_type:["feature",.85],priority:["should",.8],risk:["low",.82]})},
+  {id:"s2", cls:"s2", name:"Ambiguous", color:"#d29922", meta:"vague wording, low confidence — review",
+   answers:S({clarity:3.5,readability:2.6,atomicity:3.2,completeness:2.9},
+             {self_contained:.55,terminology_defined:.6,acceptance_quantifiable:.58,
+              correct:.66,feasible:.7,necessary:.72,traceable:.64,fidelity:.66,
+              consistent_internal:.78,non_redundant:.76,dependencies_declared:.6,conforms_template:.62},
+             {implementation_free:.34,contradicts_siblings:.12},
+             {missing_info:["boundary",.7],req_type:["feature",.7],priority:["could",.7],risk:["mid",.68]},
+             {clarity:.62})},
+  {id:"s3", cls:"s3", name:"Infeasible", color:"#f85149", meta:"pull full data in <50ms — infeasible",
+   answers:S({clarity:4.0,readability:3.6,atomicity:3.8,completeness:3.4},
+             {self_contained:.38,terminology_defined:.7,acceptance_quantifiable:.3,
+              correct:.2,feasible:.06,necessary:.2,traceable:.6,fidelity:.55,
+              consistent_internal:.82,non_redundant:.78,dependencies_declared:.5,conforms_template:.68},
+             {implementation_free:.6,contradicts_siblings:.15},
+             {missing_info:["dependency",.72],req_type:["nfr",.8],priority:["must",.8],risk:["high",.85]})},
+  {id:"s4", cls:"s4", name:"Contradictory", color:"#f85149", meta:"blocks deleting a referenced product — contradicts next item",
+   answers:S({clarity:3.6,readability:3.4,atomicity:3.5,completeness:3.2},
+             {self_contained:.66,terminology_defined:.7,acceptance_quantifiable:.72,
+              correct:.4,feasible:.6,necessary:.62,traceable:.68,fidelity:.7,
+              consistent_internal:.5,non_redundant:.8,dependencies_declared:.55,conforms_template:.7},
+             {implementation_free:.28,contradicts_siblings:.75},
+             {missing_info:["none",.7],req_type:["feature",.8],priority:["should",.75],risk:["high",.8]})},
+];
+
+// ---- decide() re-implementation, identical to core.py ----
+function decide(a){
+  const reasons=[];
+  const qs=CORE.map(k=>a[k].score).filter(x=>x!=null);
+  const avg=qs.length?qs.reduce((s,v)=>s+v,0)/qs.length:null;
+  // RED
+  for(const [k,neg] of [[null,null]]){
+    BLOCK_POS.forEach(k=>{ if(a[k]&&a[k].noul!=null && a[k].noul<T.block_noul_pos) reasons.push(`${k}=${a[k].noul.toFixed(2)} < ${T.block_noul_pos}`); });
+    [["implementation_free",true],["contradicts_siblings",true]].forEach(([k])=>{ if(a[k]&&a[k].noul!=null&&a[k].noul>T.block_noul_neg) reasons.push(`${k}=${a[k].noul.toFixed(2)} > ${T.block_noul_neg}`); });
+  }
+  if(avg!=null && avg<T.block_score) reasons.push(`quality avg ${avg.toFixed(2)} < ${T.block_score}`);
+  if(reasons.length) return {v:"red",r:reasons,avg};
+  // YELLOW
+  if(avg!=null && avg<T.review_score) reasons.push(`quality avg ${avg.toFixed(2)} < ${T.review_score}`);
+  if(a.risk&&a.risk.choice==="high") reasons.push("risk = high, review");
+  let mid=0;
+  FACES.forEach(([, ,keys])=>{ keys.forEach(([k])=>{ const an=a[k]; if(!an||an.noul==null)return;
+     if(an.noul>=T.mid_low&&an.noul<=T.mid_high){mid++;return;}
+     if(BLOCK_POS.includes(k)||k==="terminology_defined"||k==="conforms_template"||k==="non_redundant"||k==="dependencies_declared"||k==="consistent_internal"||k==="traceable"||k==="fidelity"||k==="acceptance_quantifiable"){
+       if(an.noul<T.review_pos_weak) reasons.push(`${k}=${an.noul.toFixed(2)} low, check`);
+     }
+   }); });
+  if(mid>=2) reasons.push(`${mid} dimensions uncertain (0.25–0.75) → human review`);
+  CORE.forEach(k=>{ if(a[k]&&a[k].confidence!=null&&a[k].confidence<T.low_conf) reasons.push(`${k} confidence=${a[k].confidence.toFixed(2)} low`); });
+  if(reasons.length) return {v:"yellow",r:reasons,avg};
+  return {v:"green",r:[],avg};
+}
+
+// ---- render ----
+let cur=null;
+function render(idx){
+  cur=idx;
+  document.querySelectorAll(".scene").forEach((el,i)=>el.classList.toggle("on",i===idx));
+  const s=scenarios[idx], a=s.answers;
+  const d=decide(a);
+  const faces=document.getElementById("faces"); faces.innerHTML="";
+  const hit=new Set();
+  d.r.forEach(r=>hit.add(r.split("=")[0]));
+  FACES.forEach(([name,tag,keys])=>{
+    const f=document.createElement("div"); f.className="face";
+    f.innerHTML=`<div class="faceh"><b>${name}</b><span class="fc">${tag}</span></div>`;
+    const rows=document.createElement("div"); rows.className="rows";
+    keys.forEach(([k,ty])=>{
+      const an=a[k]; if(!an)return;
+      let val,color="#8b93a8";
+      if(ty==="score"){ val=an.score.toFixed(1); color=val>=4?"#3fb950":val>=2.8?"#8b93a8":"#d29922"; }
+      else if(ty==="noul"){ val=an.noul.toFixed(2); color=an.noul<.3||an.noul>.7?"#f85149":an.noul<.5?"#d29922":"#3fb950"; }
+      else { val=an.choice; color="#58a6ff"; }
+      const row=document.createElement("div"); row.className="row"+(hit.has(k)?" hit":""); row.style.color=hit.has(k)?"#f85149":"inherit";
+      row.innerHTML=`<span class="k">${k}<span class="ty">${ty}</span></span><span class="v" style="color:${color}">${val}</span>`;
+      rows.appendChild(row);
+    });
+    f.appendChild(rows); faces.appendChild(f);
+  });
+  const V={red:"BLOCK",yellow:"REVIEW",green:"PASS"};
+  document.getElementById("verdict").textContent=V[d.v];
+  document.getElementById("verdict").className="big "+V[d.v];
+  document.getElementById("meta").textContent=s.meta;
+  document.getElementById("summary").innerHTML=
+    `quality avg <b>${d.avg!=null?d.avg.toFixed(2):"—"}</b> · risk <b>${a.risk? a.risk.choice:""}</b>`;
+  const rEl=document.getElementById("reasons"); rEl.innerHTML="";
+  if(d.r.length===0){ rEl.innerHTML=`<div class="r" style="color:#3fb950">No block/review triggers — key signals healthy.</div>`; }
+  else d.r.forEach(x=>{ const el=document.createElement("div"); el.className="r"; el.textContent="• "+x; rEl.appendChild(el); });
+}
+const sc=document.getElementById("scenes");
+scenarios.forEach((s,i)=>{
+  const el=document.createElement("div"); el.className="scene "+s.cls;
+  el.innerHTML=`<span class="dot" style="background:${s.color}"></span>
+    <span><div class="t">${s.name}</div><div class="d">${s.meta}</div></span>`;
+  el.onclick=()=>render(i); sc.appendChild(el);
+});
+render(0);
+</script>
+</body>
+</html>
