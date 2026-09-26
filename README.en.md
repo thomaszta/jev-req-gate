@@ -7,8 +7,9 @@
 > **🚀 Try it instantly — no API key, no install** (either way): open [`playground/index.html`](playground/index.html) locally in any browser; or after publishing to GitHub Pages, visit `https://thomaszta.github.io/jev-req-gate/playground/`.
 
 <p align="center">
-  <img src="https://img.shields.io/pypi/v/jev-req-gate" alt="PyPI version">
-  <img src="https://img.shields.io/pypi/pyversions/jev-req-gate" alt="Python versions">
+  <img src="https://img.shields.io/github/stars/thomaszta/jev-req-gate" alt="GitHub stars">
+  <img src="https://img.shields.io/github/license/thomaszta/jev-req-gate" alt="License: MIT">
+  <img src="https://github.com/thomaszta/jev-req-gate/actions/workflows/ci.yml/badge.svg" alt="CI">
   <img src="https://img.shields.io/badge/benchmark-real%20measurement-blue" alt="benchmark">
 </p>
 

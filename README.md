@@ -7,8 +7,9 @@
 > **🚀 免 key 试玩（二选一）**：本地直接打开 [`playground/index.html`](playground/index.html)（浏览器即可，无需发布）；或发布到 GitHub Pages 后访问 `https://thomaszta.github.io/jev-req-gate/playground/`。
 
 <p align="center">
-  <img src="https://img.shields.io/pypi/v/jev-req-gate" alt="PyPI version">
-  <img src="https://img.shields.io/pypi/pyversions/jev-req-gate" alt="Python versions">
+  <img src="https://img.shields.io/github/stars/thomaszta/jev-req-gate" alt="GitHub stars">
+  <img src="https://img.shields.io/github/license/thomaszta/jev-req-gate" alt="License: MIT">
+  <img src="https://github.com/thomaszta/jev-req-gate/actions/workflows/ci.yml/badge.svg" alt="CI">
   <img src="https://img.shields.io/badge/benchmark-real%20measurement-blue" alt="benchmark">
 </p>
 
